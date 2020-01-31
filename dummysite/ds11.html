@@ -1,0 +1,835 @@
+<!--DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<title>
+student Timetable</title>
+<style type="text/css">
+   TD {
+     /* font size and weight */
+     font-size: 7.5pt;
+     font-weight:bold;
+     align:left;
+   }
+   FONT {
+     /* font size and weight */
+     font-size: 6pt;
+
+   }
+@media print { 
+  @page rotated {size: landscape}
+	}
+TABLE {page: rotated}
+   </style>
+<script language="JavaScript">
+<!--
+var da = (document.all) ? 1 : 0;
+var pr = (window.print) ? 1 : 0;
+var mac = (navigator.userAgent.indexOf("Mac") != -1); 
+
+function printPage() {
+  if (pr) // NS4, IE5
+    window.print()
+  else if (da && !mac) // IE4 (Windows)
+    vbPrintPage()
+  else // other browsers
+    alert("Sorry, your browser doesn't support this feature.  Please select <u>Print</u> from the <b>File</b> menu.");
+  return false;
+}
+
+if (da && !pr && !mac) with (document) {
+  writeln('<OBJECT ID="WB" WIDTH="0" HEIGHT="0" CLASSID="clsid:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>');
+  writeln('<' + 'SCRIPT LANGUAGE="VBScript">');
+  writeln('Sub window_onunload');
+  writeln('On Error Resume Next');
+  writeln('Set WB = nothing');
+  writeln('End Sub');
+  writeln('Sub vbPrintPage');
+  writeln('  OLECMDID_PRINT = 6');
+  writeln('  OLECMDEXECOPT_DONTPROMPTUSER = 2');
+  writeln('  OLECMDEXECOPT_PROMPTUSER = 1');
+  writeln('  On Error Resume Next');
+  writeln('  WB.ExecWB OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER');
+  writeln('End Sub');
+  writeln('<' + '/SCRIPT>');
+}
+
+// -->
+
+</script>
+<!--<META NAME="Generator" CONTENT="TextPad 4.0">-->
+<meta charset="ISO-8859-14">
+<meta name="Author" content="?">
+<meta name="Keywords" content="?">
+<meta name="Description" content="?">
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-14">
+</head>
+<body vlink="#800000" text="#000000" link="#FF0000" bgcolor="#FFFFFF" background="ds11_files/feed.html" alink="#FF00FF">
+
+<center><table>
+<tbody><tr>
+<td valign="top"><center><table>
+<tbody><tr>
+<td valign="top" bgcolor="#eeffcc">Seminar</td>
+<td valign="top" bgcolor="#cceeff">Practical</td>
+<td valign="top" bgcolor="#ffeecc">Tutorial</td>
+<td valign="top" bgcolor="#ffcccc">Lecture</td>
+</tr>
+
+</tbody></table></center></td>
+
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=1-7&amp;hour=1-20&amp;template=Studprog">Full Week</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=1&amp;hour=1-20&amp;template=Studprog">Monday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=2&amp;hour=1-20&amp;template=Studprog">Tuesday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=3&amp;hour=1-20&amp;template=Studprog">Wednesday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=4&amp;hour=1-20&amp;template=Studprog">Thursday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=5&amp;hour=1-20&amp;template=Studprog">Friday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=6&amp;hour=1-20&amp;template=Studprog">Saturday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=7&amp;hour=1-20&amp;template=Studprog">Sunday</a></td>
+<td valign="top"><form name="net"><input type="button" onclick="printPage()" value="Print your timetable"></form></td>
+</tr>
+    </tbody></table></center>
+
+
+<!--http://sci-live-web-01.dcu.ie:81/Reporting/Individual;Programmes+of+Study;name;DS1?template=Studprog&weeks=1-12&days=1-7&periods=1-20&Width=0&Height=0--><!-- CC 298 --><!-- START REPORT HEADER -->
+<table width="100%" cellspacing="0" border="0"><tbody><tr>
+<td>
+<table width="100%" cellspacing="0" border="0">
+<colgroup><col align="left"><col align="center"><col align="right">
+  </colgroup><tbody><tr>
+    <td></td><td>  </td><td></td>
+  </tr>
+</tbody></table>
+</td>
+</tr><tr>
+<td>
+<table width="100%" cellspacing="0" border="0">
+<colgroup><col align="left"><col align="center"><col align="right">
+  </colgroup><tbody><tr>
+    <td></td><td>DS1Draft Programme Timetable  </td><td>Total Hours:   331</td>
+  </tr>
+</tbody></table>
+</td>
+</tr><tr>
+<td>
+<table width="100%" cellspacing="0" border="0">
+<colgroup><col align="left"><col align="center"><col align="right">
+  </colgroup><tbody><tr>
+    <td></td><td> </td><td></td>
+  </tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<!-- END REPORT HEADER -->
+
+<table cellspacing="0" border="1">
+
+<!-- START COLUMN LABELS ONE -->
+<tbody><tr>
+    <td></td>
+    
+    <td colspan="1">8:00</td>
+    <td colspan="1">8:30</td>
+    <td colspan="1">9:00</td>
+    <td colspan="1">9:30</td>
+    <td colspan="1">10:00</td>
+    <td colspan="1">10:30</td>
+    <td colspan="1">11:00</td>
+    <td colspan="1">11:30</td>
+    <td colspan="1">12:00</td>
+    <td colspan="1">12:30</td>
+    <td colspan="1">13:00</td>
+    <td colspan="1">13:30</td>
+    <td colspan="1">14:00</td>
+    <td colspan="1">14:30</td>
+    <td colspan="1">15:00</td>
+    <td colspan="1">15:30</td>
+    <td colspan="1">16:00</td>
+    <td colspan="1">16:30</td>
+    <td colspan="1">17:00</td>
+    <td colspan="1">17:30</td>
+</tr>
+
+<!-- END COLUMN LABELS ONE -->
+
+<!-- START ROW OUTPUT -->
+<tr>
+    <td style="border-bottom:3px solid #000000;" rowspan="1">Mon</td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffeecc">Tut. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.Q217</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Nolan L</td>
+  <td align="center">Calculus I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS129[1]T1/02 (AP DS)</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.SA105</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Healy G</td>
+  <td align="center">Collaboration and Innovation</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA120[1]L1</td>
+  <td align="right">2-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffeecc">Tut. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.SA301</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Brady T</td>
+  <td align="center">Linear Maths 1</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS103[1]T1/01</td>
+  <td align="right">2-6, 8-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td style="border-bottom:3px solid #000000;" rowspan="1">Tue</td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.CG12</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]L2</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.QG15</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]L1</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.CG12</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Roantree M</td>
+  <td align="center">Intro to Databases</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA119/CA218[1]L2/01</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="4" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#cceeff">Prac. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.L101, GLA.L125, GLA.L128</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]P1</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.CG12</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Roantree M</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA119/CA218[1]L1/01</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td style="border-bottom:3px solid #000000;" rowspan="1">Wed</td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.QG15</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]L3</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.CG86</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Conroy, A</td>
+  <td align="center">Calculus I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS129[1]L2/01</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.XG19</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Brady T</td>
+  <td align="center">Linear Maths 1</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS103[1]L1/01</td>
+  <td align="right">1-6, 8-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td style="border-bottom:3px solid #000000;" rowspan="3">Thu</td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.CG05</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Conroy, A</td>
+  <td align="center">Calculus I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS129[1]L1/01</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.XG19</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]L4</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.QG27</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Healy G</td>
+  <td align="center">Collaboration and Innovation</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA120[1]L3</td>
+  <td align="right">1</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="6" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#cceeff">Prac. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.N201</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Howard F</td>
+  <td align="center">Calculus I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS129[1]P1/01</td>
+  <td align="right">1-6</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="4" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#cceeff">Prac. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.LG25, GLA.L128, GLA.L125</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]P2 &lt;4, 8, 12&gt;</td>
+  <td align="right">4, 8, 12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="4" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#cceeff">Prac. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.LG26, GLA.LG25</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Roantree M</td>
+  <td align="center">Intro to databases</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA119/CA218[1]P1/01</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+</tr>
+<tr>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffeecc">Tut. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.X101</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Hanks W</td>
+  <td align="center">Calculus I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS129[1]T1/01 (PBM PHA)</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="4" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#cceeff">Prac. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.LG25, GLA.L125, GLA.LG26</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Blott S</td>
+  <td align="center">Computer Programming I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA116[1]P2 &lt;1-3, 5-7, 9-11&gt;</td>
+  <td align="right">1-3, 5-7, 9-11</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td style="border-bottom:3px solid #000000;" rowspan="1">Fri</td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.XG21</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Conroy, A</td>
+  <td align="center">Calculus I</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS129[1]L3/01</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td id="object-cell-border" colspan="2" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.XG19</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Brady T</td>
+  <td align="center">Linear Maths 1</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">MS103[1]L2/01</td>
+  <td align="right">1-6, 8-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td id="object-cell-border" colspan="4" rowspan="1" style="font-weight: bold" valign="top" bgcolor="#ffcccc">Lec. <!-- START OBJECT-CELL --><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody><tr align="left">
+  <td align="right">GLA.SA105</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="center">
+</colgroup><tbody><tr>
+  <td align="left">Healy G</td>
+  <td align="center">Collaboration and Innovation</td>
+</tr>
+</tbody></table>
+<table width="100%" cellspacing="0" border="0">
+  <colgroup><col align="left">
+  <col align="right">
+</colgroup><tbody><tr>
+  <td align="left">CA120[1]L2</td>
+  <td align="right">1-12</td>
+</tr>
+</tbody></table>
+<!-- END OBJECT-CELL -->
+    </td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td style="border-bottom:3px solid #000000;" rowspan="1">Sat</td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td style="border-bottom:3px solid #000000;"><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+<tr>
+    <td rowspan="1">Sun</td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+    <td><img src="http://www.dcu.ie/images/space.gif" width="1" height="1"></td>
+</tr>
+
+<!-- END ROW OUTPUT -->
+</tbody></table>
+
+<!-- START REPORT FOOTER -->
+<table width="100%" cellspacing="0" border="0"><tbody><tr>
+<td>
+<table width="100%" cellspacing="0" border="0">
+<colgroup><col align="left"><col align="center"><col align="right">
+  </colgroup><tbody><tr>
+    <td></td><td> </td><td></td>
+  </tr>
+</tbody></table>
+</td>
+</tr><tr>
+<td>
+<table width="100%" cellspacing="0" border="0">
+<colgroup><col align="left"><col align="center"><col align="right">
+  </colgroup><tbody><tr>
+    <td>Page No. -1</td><td>Printed:  31 Jan 2020</td><td></td>
+  </tr>
+</tbody></table>
+</td>
+</tr><tr>
+<td>
+<table width="100%" cellspacing="0" border="0">
+<colgroup><col align="left"><col align="center"><col align="right">
+  </colgroup><tbody><tr>
+    <td></td><td> </td><td></td>
+  </tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<center><table>
+<tbody><tr>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=1-7&amp;hour=1-20&amp;template=Studprog">Full Week</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=1&amp;hour=1-20&amp;template=Studprog">Monday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=2&amp;hour=1-20&amp;template=Studprog">Tuesday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=3&amp;hour=1-20&amp;template=Studprog">Wednesday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=4&amp;hour=1-20&amp;template=Studprog">Thursday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=5&amp;hour=1-20&amp;template=Studprog">Friday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=6&amp;hour=1-20&amp;template=Studprog">Saturday</a></td>
+<td valign="top"><a href="https://www101.dcu.ie/timetables/feed.php?prog=DS&amp;per=1&amp;week1=1&amp;week2=12&amp;day=7&amp;hour=1-20&amp;template=Studprog">Sunday</a></td>
+<td valign="top"><form name="net"><input type="button" onclick="printPage()" value="Print your timetable"></form></td>
+</tr>
+</tbody></table></center>
+
+</body></html>
