@@ -24,13 +24,13 @@ class Search extends React.Component {
             <form method="get">
                 <label>
                     Programme:
-                    <input type="text" name="course" onChange={this.changeHandler} />
+                    <input type="text" name="course input field" onChange={this.changeHandler} />
                 </label><br />
                 <label>
                     Year of Study:
-                    <input type="text" name="year" onChange={this.changeHandler} />
+                    <input type="text" name="year input field" onChange={this.changeHandler} />
                 </label><br />
-                <input type="submit" value="Search" />
+                <input type="submit" value="Search" name="search for course" />
             </form>
         );
     }
