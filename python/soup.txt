@@ -1,0 +1,183 @@
+
+Mon
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+Prac. 
+GLA.LG25,GLA.LG26,GLA.LG27
+Sutherland A
+Probability &amp; Statistics
+CA266
+20-30
+emptySlot
+emptySlot
+Lec. 
+GLA.QG13
+Daly C
+Computer Programming 4 
+CA269
+19-30
+Lec. 
+GLA.XG21
+Daly C
+Computer Programming 4 
+CA269
+19-30
+Prac. 
+GLA.LG26,GLA.LG25,GLA.L128
+Daly C
+Computer Programming 4 
+CA269
+19-30
+Tue
+Prac. 
+GLA.L114,GLA.L128
+Clarke,Paul
+Software Testing
+CA267
+21-23
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+Lec. 
+GLA.CG12
+Clarke,Paul
+Software Testing
+CA267
+19-20,24-30
+Lec. 
+GLA.CG12
+Clarke,Paul
+Software Testing
+CA267
+19-20,24-30
+emptySlot
+emptySlot
+Tut. 
+GLA.C115
+Hanks W
+Linear Algebra
+MS20020-30
+Tut. 
+GLA.XG14
+Hanks W
+Linear Algebra
+MS20020-30
+Lec. 
+GLA.SA101
+Clancy M
+MS200/A/B
+19-30
+Wed
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+Lec. 
+GLA.XG19
+Walshe R
+Advanced Computer Architectures
+CA226
+19-30
+Prac. 
+GLA.L101,GLA.L128
+Walshe R
+Advanced Computer Architectures
+CA226
+19-30
+Lec. 
+GLA.HG20
+Fitzpatrick D
+Operating Systems
+CA216
+19-30
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+Thu
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+Lec. 
+GLA.XG22
+Walshe R
+Advanced Computer Architectures
+CA226
+19-30
+Lec. 
+GLA.XG22
+Sutherland A
+Probability &amp; Statistics
+CA266
+19-30
+Lec. 
+GLA.L101
+Sutherland A
+Probability &amp; Statistics
+CA266
+19-30
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+Lec. 
+GLA.XG19
+Fitzpatrick D
+Operating Systems
+CA216
+19-30
+emptySlot
+emptySlot
+Fri
+Prac. 
+GLA.LG27,GLA.LG26,GLA.LG25
+Fitzpatrick D
+Operating Systems
+CA216
+19,22-30
+emptySlot
+emptySlot
+Lec. 
+GLA.SA101
+Clancy M
+Linear Algebra
+MS200/A
+19-30
+Prac. 
+GLA.LG27,GLA.L101
+Fitzpatrick D
+Operating Systems
+CA216
+20-21
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
