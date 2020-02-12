@@ -21,17 +21,23 @@ class Search extends React.Component {
 
     render() {
         return (
-            <form method="get">
-                <label>
-                    Programme:
-                    <input type="text" name="course input field" onChange={this.changeHandler} />
-                </label><br />
-                <label>
-                    Year of Study:
-                    <input type="text" name="year input field" onChange={this.changeHandler} />
-                </label><br />
-                <input type="submit" value="Search" name="search for course" />
-            </form>
+            <div>
+                <form>
+                    <label>
+                        Programme:
+                        <input type="text" name="course" onChange={this.changeHandler} method="get" />
+                    </label><br />
+                    <label>
+                        Year of Study:
+                        <input type="text" name="course" onChange={this.changeHandler} method="get" />
+                    </label><br />
+                    <select name="semester" method="get">
+                        <option value="one">1</option>
+                        <option value="two">2</option>
+                    </select><br />
+                    <input type="submit" value="Search" name="search for course" />
+                </form>
+            </div>
         );
     }
 }
