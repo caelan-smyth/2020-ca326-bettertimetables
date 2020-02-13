@@ -31,10 +31,13 @@ class Search extends React.Component {
                         Year of Study:
                         <input type="text" name="year" onChange={this.changeHandler} />
                     </label><br />
-                    <select name="semester" >
-                        <option value="one">1</option>
-                        <option value="two">2</option>
-                    </select><br />
+                    <label>
+                        Semester:
+                        <select name="semester" >
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                        </select>
+                    </label><br />
                     <input type="submit" value="Search" name="search for course" />
                 </form>
             </div>
