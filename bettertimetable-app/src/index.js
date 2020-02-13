@@ -22,7 +22,7 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-                <form method="post">
+                <form method="get">
                     <label>
                         Programme:
                         <input type="text" name="course" onChange={this.changeHandler} />
