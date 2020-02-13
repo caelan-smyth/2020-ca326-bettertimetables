@@ -22,16 +22,16 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-                <form>
+                <form method="post">
                     <label>
                         Programme:
-                        <input type="text" name="course" onChange={this.changeHandler} method="get" />
+                        <input type="text" name="course" onChange={this.changeHandler} />
                     </label><br />
                     <label>
                         Year of Study:
-                        <input type="text" name="course" onChange={this.changeHandler} method="get" />
+                        <input type="text" name="year" onChange={this.changeHandler} />
                     </label><br />
-                    <select name="semester" method="get">
+                    <select name="semester" >
                         <option value="one">1</option>
                         <option value="two">2</option>
                     </select><br />
