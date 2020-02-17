@@ -39,20 +39,20 @@ class Search extends React.Component {
                 <form method="get">
                     <label>
                         Programme:
-                        <input type="text" name="course" onChange={this.changeHandler} />
+                        <input type="text" name="course" onChange={this.changeHandler} class="searchbox" />
                     </label><br />
                     <label>
                         Year of Study:
-                        <input type="text" name="year" onChange={this.changeHandler} />
+                        <input type="text" name="year" onChange={this.changeHandler} class="searchbox" />
                     </label><br />
                     <label>
                         Semester:
-                        <select name="semester" >
+                        <select name="semester" class="searchbox">
                             <option value="one">1</option>
                             <option value="two">2</option>
                         </select>
                     </label><br />
-                    <input type="Submit" value="Submit" name="search for course" />
+                    <input type="Submit" value="Submit" name="search for course" class="submitbutton" />
                 </form>
             </div>
         );

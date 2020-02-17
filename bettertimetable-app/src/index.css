@@ -5,11 +5,19 @@ body {
     font-family: 'Roboto';
     font-size: 30px;
     background-color: #272822;
-    color: #66D9Ef;
+    color: #F5793A;
 }
 
 h1 {
     font-size: 36px;
     font-family: 'Roboto';
-    color: #f92672;
+    color: #85C0F9;
+}
+
+.submitbutton {
+    border-radius: 5px;
+}
+
+.searchbox {
+    border-radius: 5px;
 }
