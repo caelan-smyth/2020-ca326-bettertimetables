@@ -14,13 +14,29 @@ h1 {
     color: #85C0F9;
 }
 
+label {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
+input {
+    height: 30px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+
 input, select {
     border-radius: 5px;
     font-size: 20px;
 }
 
 select {
-    width: 50px;
+    height: 30px;
+    flex: 0 0 50px;
+    margin-left: 10px;
     text-align: center;
 }
 
