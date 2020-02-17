@@ -14,10 +14,16 @@ h1 {
     color: #85C0F9;
 }
 
-.submitbutton {
+input, select {
     border-radius: 5px;
+    font-size: 20px;
 }
 
-.searchbox {
-    border-radius: 5px;
+select {
+    width: 50px;
+    text-align: center;
+}
+
+input:focus, select:focus {
+    border: 3px solid #85C0F9;
 }
