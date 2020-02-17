@@ -6,7 +6,11 @@ import './index.css';
 class Search extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''}
+        this.state = {
+            course: '',
+            year: null,
+            semester: null,
+        }
 
         this.changeHandler = this.changeHandler.bind(this);
         //this.submitHandler = this.submitHandler.bind(this);
@@ -31,7 +35,9 @@ class Search extends React.Component {
         this.setState({[name]: value});
     }
 
-    //submitHandler(event) {}
+    submitHandler(event) {
+        event.preventDefault();
+    }
 
     render() {
         return (
