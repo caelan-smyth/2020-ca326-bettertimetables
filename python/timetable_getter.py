@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests, sys
 from cleaner import cleanup
 import csv
+from flask import jsonify
 
 def main():
     print(get_timetable("http://oisin.site/timetable"))
@@ -16,8 +17,8 @@ def get_timetable(url):
     f.write(cleanup(soup))
 
     tables = get_tables(oldsoup)
-    print(colspan_getter(tables))
-    print(rowspan_getter(tables))
+    return jsonify(colspan_getter(tables), rowspan_getter(tables))
+    # return rowspan_getter(tables)
 
 
 def get_tables(soup): # extracts tables from soup. needed to extract rowspan and colspan
