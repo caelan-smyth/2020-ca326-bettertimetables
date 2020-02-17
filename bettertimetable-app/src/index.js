@@ -11,6 +11,19 @@ class Search extends React.Component {
         //this.submitHandler = this.submitHandler.bind(this);
     }
 
+    state = {
+        timetable: []
+    }
+
+    componentDidMount() {
+        fetch('http://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then((data) => {
+            this.setState({ timetable: data })
+        })
+        .catch(console.log)
+    }
+
     changeHandler(event) {
         let name = event.target.name;
         let value = event.target.value;
@@ -38,7 +51,7 @@ class Search extends React.Component {
                             <option value="two">2</option>
                         </select>
                     </label><br />
-                    <input type="submit" value="Search" name="search for course" />
+                    <input type="Submit" value="Submit" name="search for course" />
                 </form>
             </div>
         );
