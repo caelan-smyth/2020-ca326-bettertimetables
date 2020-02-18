@@ -13,7 +13,7 @@ class Search extends React.Component {
         }
 
         this.changeHandler = this.changeHandler.bind(this);
-        //this.submitHandler = this.submitHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
     state = {
