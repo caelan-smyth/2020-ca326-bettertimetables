@@ -25,34 +25,39 @@ class Search extends React.Component {
 
     submitHandler(event) {
         event.preventDefault();
-
+        
     }
 
     render() {
         return (
-            <div>
-                <form method="get">
-                    <label>
-                        Programme:
-                        <input type="text" name="course" onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                        Year of Study:
-                        <input type="text" name="year" onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                        Semester:
-                        <select name="semester" >
-                            <option value="one">1</option>
-                            <option value="two">2</option>
-                        </select>
-                    </label>
-                    <label>
-                        Search
-                        <input type="Submit" value="Submit" name="search for course" />
-                    </label>
-                </form>
-            </div>
+            <>
+                <div>
+                    <form method="get">
+                        <label>
+                            Programme:
+                            <input type="text" name="course" onChange={this.changeHandler} />
+                        </label>
+                        <label>
+                            Year of Study:
+                            <input type="text" name="year" onChange={this.changeHandler} />
+                        </label>
+                        <label>
+                            Semester:
+                            <select name="semester" >
+                                <option value="one">1</option>
+                                <option value="two">2</option>
+                            </select>
+                        </label>
+                        <label>
+                            Search
+                            <input type="Submit" value="Submit" name="search for course" />
+                        </label>
+                    </form>
+                </div>
+                <BrowserRouter>
+                    <Route path ="/" exact component={Search} />
+                </BrowserRouter>
+            </>
         );
     }
 }
