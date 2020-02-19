@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from "react-router-dom";
 import './index.css';
-//import { CsvToHtmlTable } from 'react-csv-to-table';
+
 
 class Search extends React.Component {
     constructor(props) {
@@ -9,24 +10,11 @@ class Search extends React.Component {
         this.state = {
             course: '',
             year: null,
-            semester: null,
+            semester: null
         }
 
         this.changeHandler = this.changeHandler.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
-    }
-
-    state = {
-        timetable: []
-    }
-
-    componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
-        .then((data) => {
-            this.setState({ timetable: data })
-        })
-        .catch(console.log)
     }
 
     changeHandler(event) {
@@ -37,6 +25,7 @@ class Search extends React.Component {
 
     submitHandler(event) {
         event.preventDefault();
+
     }
 
     render() {
