@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './index.css';
-import 'timetablecomponents/case21.js';
+import Timetable from './Timetable.js';
 import Search from './search.js';
 
 class App extends React.Component {
