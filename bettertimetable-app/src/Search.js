@@ -22,8 +22,6 @@ class Search extends React.Component {
 
     submitHandler(event) {
         event.preventDefault();
-        
-        history.push("/${}")
     }
 
     render() {
@@ -33,11 +31,11 @@ class Search extends React.Component {
                 <form method="get">
                     <label>
                         Programme:
-                        <input type="text" name="course" onChange={this.changeHandler} />
+                        <input type="text" name="course" placeholder="Programme Code" onChange={this.changeHandler} />
                     </label>
                     <label>
                         Year of Study:
-                        <input type="text" name="year" onChange={this.changeHandler} />
+                        <input type="text" name="year" placeholder="Year" onChange={this.changeHandler} />
                     </label>
                     <label>
                         Semester:
