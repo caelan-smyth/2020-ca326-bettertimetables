@@ -47,10 +47,16 @@ def get_data(): # timetable getter will probably just get called here, but not s
     if not request.json:
         abort(400)
     data = request.json
+    return data
 
-@app.route("/table")
+@app.route("/table") 
 def table():
     return get_timetable("http://oisin.site/timetable")
+
+
+@app.route("/timetable/<string:course>/<string:year>/<string:semester>", methods=['GET'])
+def handle_timetable(course, year, semester):
+    return jsonify(course, year, semester)
     
     
 

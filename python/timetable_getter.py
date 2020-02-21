@@ -3,6 +3,7 @@ import requests, sys
 from cleaner import cleanup
 import csv
 from flask import jsonify
+import objects
 
 def main():
     print(get_timetable("http://oisin.site/timetable"))
@@ -17,8 +18,10 @@ def get_timetable(url):
     f.write(cleanup(soup))
 
     tables = get_tables(oldsoup)
-    return jsonify(colspan_getter(tables), rowspan_getter(tables))
+    # return jsonify(colspan_getter(tables), rowspan_getter(tables))
     # return rowspan_getter(tables)
+    # return jsonify(make_lists(cleanup(soup)))
+
 
 
 def get_tables(soup): # extracts tables from soup. needed to extract rowspan and colspan
@@ -42,6 +45,7 @@ def rowspan_getter(tables): # returns the rows occupied by each day, in order
     for key in keys:
         values.append(int(key[2]))
     return values
+
 
 
 if __name__ == "__main__":

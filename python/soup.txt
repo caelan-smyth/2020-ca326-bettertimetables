@@ -35,12 +35,28 @@ Computer Programming 4
 CA269
 19-30
 Tue
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
 Prac. 
 GLA.L114,GLA.L128
 Clarke,Paul
 Software Testing
 CA267
 21-23
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
 emptySlot
 emptySlot
 emptySlot
@@ -67,12 +83,14 @@ Tut.
 GLA.C115
 Hanks W
 Linear Algebra
-MS20020-30
+MS200
+20-30
 Tut. 
 GLA.XG14
 Hanks W
 Linear Algebra
-MS20020-30
+MS200
+20-30
 Lec. 
 GLA.SA101
 Clancy M
@@ -149,12 +167,28 @@ CA216
 emptySlot
 emptySlot
 Fri
+emptySlot
+emptySlot
+emptySlot
+emptySlot
 Prac. 
 GLA.LG27,GLA.LG26,GLA.LG25
 Fitzpatrick D
 Operating Systems
 CA216
 19,22-30
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
+emptySlot
 emptySlot
 emptySlot
 Lec. 
