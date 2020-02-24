@@ -63,56 +63,7 @@ class App extends React.Component {
         };
     
         /*return (
-            <div class="timetable">
-                <table class="timetable" >
-                    <tr>
-                        <th>Day</th>
-                        <th>08:00</th>
-                        <th>08:30</th>
-                        <th>09:00</th>
-                        <th>09:30</th>
-                        <th>10:00</th>
-                        <th>10:30</th>
-                        <th>11:00</th>
-                        <th>11:30</th>
-                        <th>12:00</th>
-                        <th>12:30</th>
-                        <th>13:00</th>
-                        <th>13:30</th>
-                        <th>14:00</th>
-                        <th>14:30</th>
-                        <th>15:00</th>
-                        <th>15:30</th>
-                        <th>16:00</th>
-                        <th>16:30</th>
-                        <th>17:00</th>
-                        <th>17:30</th>
-                    </tr>
-                    <tr>
-                        <td>{Day}</td>
-                        <td>{"08:00"}</td>
-                        <td>{"08:30"}</td>
-                        <td>{"09:00"}</td>
-                        <td>{"09:30"}</td>
-                        <td>{"10:00"}</td>
-                        <td>{"10:30"}</td>
-                        <td>{"11:00"}</td>
-                        <td>{"11:30"}</td>
-                        <td>{"12:00"}</td>
-                        <td>{"12:30"}</td>
-                        <td>{"13:00"}</td>
-                        <td>{"13:30"}</td>
-                        <td>{"14:00"}</td>
-                        <td>{"14:30"}</td>
-                        <td>{"15:00"}</td>
-                        <td>{"15:30"}</td>
-                        <td>{"16:00"}</td>
-                        <td>{"16:30"}</td>
-                        <td>{"17:00"}</td>
-                        <td>{"17:30"}</td>
-                    </tr>
-                </table>
-            </div>
+            <Timetable data={this.state.data} />
         );*/
     }
 
