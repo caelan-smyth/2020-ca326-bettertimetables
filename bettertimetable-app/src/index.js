@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { CsvToHtmlTable } from 'react-csv-to-table';
 import './index.css';
 //import Timetable from 'timetablecomponents/Timetable.js';
 //import Search from './Search.js';
@@ -35,8 +34,8 @@ class App extends React.Component {
             year: null,
             semester: null,
             data: `
-            day,900,930,1000,1030,1100,1130,1200,1230,1300,1330,1400,1430,1500,1530,1600,1630,1700,1730
-            Mon,none,none,none,none,none,none,ProbStatLab,ProbStatLab,none,none,Prog4Lec,Prog4Lec,Prog4Lec,Prog4Lec,Prog4Lab,Prog4Lab
+            a,b,c
+            d,e,f
             `
         };
 
@@ -51,16 +50,14 @@ class App extends React.Component {
     }
 
     submitHandler(event) {
-        /*event.preventDefault();
+        event.preventDefault();
         useEffect(() => {
             fetchTimetable();
         }, []);
-
-        
     
         const fetchTimetable = async () => {
             let data = await fetch(
-                //api link goes here + {this.state.course}
+                //"api link goes here/" + {this.state.course} + "/" + {this.state.year} + "/" + {this.state.semester}
             );
     
             const items = await data.json();
@@ -68,7 +65,9 @@ class App extends React.Component {
             this.setState({[data]:items})
         };
     
-        return ();*/
+        /*return (
+            something to handle the timetable here
+        );*/
     }
 
     render() {
@@ -96,7 +95,9 @@ class App extends React.Component {
                         <input type="Submit" value="Submit" name="search for course" onSubmit={this.submitHandler.bind(this, )} />
                     </label>
                 </form>
-                <CsvToHtmlTable data={this.data} csvDelimiter="," />
+                <CsvToHtmlTable
+                 data={this.data}
+                 csvDelimiter="," />
             </div>
         );
     }
