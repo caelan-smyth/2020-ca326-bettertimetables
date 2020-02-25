@@ -1,0 +1,10 @@
+stages:
+  - test
+
+test app:
+  image: python:latest
+  stage: test
+  script:
+    cd python
+    pip install --progress=false
+    python tests.py
