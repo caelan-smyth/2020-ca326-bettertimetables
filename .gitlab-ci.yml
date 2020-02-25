@@ -6,5 +6,5 @@ test app:
   stage: test
   script:
     - cd python
-    - pip install --progress=false
+    - pip install
     - python tests.py
