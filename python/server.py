@@ -8,38 +8,78 @@ api = Api(app)
 
 
 
-test_data = [
-    {
-        "name": "Programming",
-        "day": "monday",
-        "loc": "CG12",
-        "dur": "1"
-    },
-    {
-        "name": "Operating Systems",
-        "day": "tuesday",
-        "loc": "LG27",
-        "dur": "2"
+
+test_data =     {
+        "code" : "CASE",
+        "year" : 2,
+        "sem" : 1,
+        "days" : [
+            {
+                "day" : "Monday",
+                "timeslots" : [
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {
+                        "isvalid" : 1,
+                        "code" : "CA266",
+                        "title" : "Probstats",
+                        "loc" : "GLA.LG25"
+                    },
+                    {
+                        "isvalid" : 1,
+                        "code" : "CA266",
+                        "title" : "Probstats",
+                        "loc" : "GLA.LG25"
+                    },
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {
+                        "isvalid" : 1,
+                        "code" : "CA269",
+                        "title" : "Prog 4",
+                        "loc" : "GLA.LG25"
+                    },
+                                        {
+                        "isvalid" : 1,
+                        "code" : "CA269",
+                        "title" : "Prog 4",
+                        "loc" : "GLA.LG25"
+                    },
+                    {
+                        "isvalid" : 1,
+                        "code" : "CA269",
+                        "title" : "Prog 4",
+                        "loc" : "GLA.LG25"
+                    },
+                                        {
+                        "isvalid" : 1,
+                        "code" : "CA269",
+                        "title" : "Prog 4",
+                        "loc" : "GLA.LG25"
+                    },
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {"isvalid" : 0},
+                    {"isvalid" : 0}
+
+                ]
+            }
+        ]
+
     }
-]
 
-
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
-
-api.add_resource(HelloWorld, '/')
-
-
-class Test(Resource):
-    def get(self):
-        return jsonify(test_data)
-
-api.add_resource(Test, '/test')
 
 @app.route('/hello') # test top level route
 def index():
     return "Hello, World!"
+
+@app.route('/test', methods=['GET'])
+def send_test_data():
+    return jsonify(test_data)
 
 
 @app.route("/", methods = ['POST']) # opting for a top level POST of json with all form info.
