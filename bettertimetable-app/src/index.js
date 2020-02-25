@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { CsvToHtmlTable } from 'react-csv-to-table';
+import Timetable from './Timetable.js';
 import './index.css';
-//import Timetable from 'timetablecomponents/Timetable.js';
-//import Search from './Search.js';
 
 /*function Timetable() {
     useEffect(() => {
@@ -23,7 +21,6 @@ import './index.css';
     };
 
     return (
-    <CsvToHtmlTable data={data} csvDelimiter="," />
     );
 }*/
 
@@ -34,10 +31,7 @@ class App extends React.Component {
             course: '',
             year: null,
             semester: null,
-            data: `
-            day,900,930,1000,1030,1100,1130,1200,1230,1300,1330,1400,1430,1500,1530,1600,1630,1700,1730
-            Mon,none,none,none,none,none,none,ProbStatLab,ProbStatLab,none,none,Prog4Lec,Prog4Lec,Prog4Lec,Prog4Lec,Prog4Lab,Prog4Lab
-            `
+            data: [] 
         };
 
         this.changeHandler = this.changeHandler.bind(this);
@@ -51,52 +45,61 @@ class App extends React.Component {
     }
 
     submitHandler(event) {
-        /*event.preventDefault();
+        event.preventDefault();
         useEffect(() => {
             fetchTimetable();
         }, []);
-
-        
     
         const fetchTimetable = async () => {
-            let data = await fetch(
-                //api link goes here + {this.state.course}
-            );
-    
-            const items = await data.json();
+            let url = ""//api link goes here/ + {this.state.course} + "/" + {this.state.year} + "/" + {this.state.semester};
+            const response = await fetch(url);        
+            const items = await response.json();
             console.log(items);
-            this.setState({[data]:items})
+            this.setState({data: items.results})
         };
-    
-        return ();*/
+
+        if (!this.state.data.length) {
+            return <div>Timetable not found</div>
+        }
+
+        return(
+            <Timetable data={this.data} />
+        );
     }
 
     render() {
         return (
-            <div>
+            <div role="main">
                 <h1 title="Search by Course code">Programme Search</h1>
-                <form method="get">
-                    <label>
-                        Programme:
-                        <input type="text" name="course" placeholder="Programme Code" onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                        Year of Study:
-                        <input type="text" name="year" placeholder="Year" onChange={this.changeHandler} />
-                    </label>
-                    <label>
-                        Semester:
-                        <select name="semester" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                    </label>
-                    <label>
-                        Search
-                        <input type="Submit" value="Submit" name="search for course" onSubmit={this.submitHandler.bind(this, )} />
-                    </label>
+                <form method="get" role="form">
+                    <div class="form-field">
+                        <label>
+                            Programme:
+                            <input type="text" name="course" placeholder="Programme Code" onChange={this.changeHandler} />
+                        </label>
+                    </div>
+                    <div class="form-field">
+                        <label>
+                            Year of Study:
+                            <input type="text" name="year" placeholder="Year" onChange={this.changeHandler} />
+                        </label>
+                    </div>
+                    <div class="form-select">
+                        <label>
+                            Semester:
+                            <select name="semester" aria-valuenow="1" aria-valuemin="1" aria-valuemax="2" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-submit">
+                        <label>
+                            Search
+                            <input type="Submit" value="Submit" name="search for course" onSubmit={this.submitHandler.bind(this, )} />
+                        </label>
+                    </div>
                 </form>
-                <CsvToHtmlTable data={this.data} csvDelimiter="," />
             </div>
         );
     }

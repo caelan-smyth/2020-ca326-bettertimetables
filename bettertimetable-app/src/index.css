@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 body {
-    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Roboto';
     font-size: 30px;
     background-color: #272822;
@@ -19,7 +21,7 @@ label {
     flex-direction: row;
     width: 600px;
     line-height: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 input {
@@ -41,5 +43,5 @@ select {
 }
 
 input:focus, select:focus {
-    border: 3px solid #85C0F9;
+    border: 3px solid rgb(25, 0, 255);
 }
