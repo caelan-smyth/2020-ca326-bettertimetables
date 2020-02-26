@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Timetable from './Timetable.js';
 import './index.css';
@@ -46,12 +46,9 @@ class App extends React.Component {
 
     submitHandler(event) {
         event.preventDefault();
-        useEffect(() => {
-            fetchTimetable();
-        }, []);
-    
+            
         const fetchTimetable = async () => {
-            let url = ""//api link goes here/ + {this.state.course} + "/" + {this.state.year} + "/" + {this.state.semester};
+            let url = "http://localhost:5000/test"//api link goes here/ + {this.state.course} + "/" + {this.state.year} + "/" + {this.state.semester};
             const response = await fetch(url);        
             const items = await response.json();
             console.log(items);
@@ -62,6 +59,8 @@ class App extends React.Component {
             return <div>Timetable not found</div>
         }
 
+        fetchTimetable();
+
         return(
             <Timetable data={this.data} />
         );
@@ -71,32 +70,32 @@ class App extends React.Component {
         return (
             <div role="main">
                 <h1 title="Search by Course code">Programme Search</h1>
-                <form method="get" role="form">
-                    <div class="form-field">
+                <form method="get">
+                    <div className="form-field">
                         <label>
                             Programme:
                             <input type="text" name="course" placeholder="Programme Code" onChange={this.changeHandler} />
                         </label>
                     </div>
-                    <div class="form-field">
+                    <div className="form-field">
                         <label>
                             Year of Study:
                             <input type="text" name="year" placeholder="Year" onChange={this.changeHandler} />
                         </label>
                     </div>
-                    <div class="form-select">
+                    <div className="form-select">
                         <label>
                             Semester:
-                            <select name="semester" aria-valuenow="1" aria-valuemin="1" aria-valuemax="2" >
+                            <select name="semester" onChange={this.changeHandler} >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
                         </label>
                     </div>
-                    <div class="form-submit">
+                    <div className="form-submit">
                         <label>
                             Search
-                            <input type="Submit" value="Submit" name="search for course" onSubmit={this.submitHandler.bind(this, )} />
+                            <input type="Submit" name="search for course" onClick={this.submitHandler} />
                         </label>
                     </div>
                 </form>
