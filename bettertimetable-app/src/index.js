@@ -3,27 +3,6 @@ import ReactDOM from 'react-dom';
 import Timetable from './Timetable.js';
 import './index.css';
 
-/*function Timetable() {
-    useEffect(() => {
-        fetchTimetable();
-    }, []);
-
-    const [items, setItems] = useState([]);
-
-    const fetchTimetable = async () => {
-        const data = await fetch(
-            //api link goes here
-        );
-
-        const items = await data.json();
-        console.log(items);
-        setItems(items);
-    };
-
-    return (
-    );
-}*/
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -35,7 +14,6 @@ class App extends React.Component {
         };
 
         this.changeHandler = this.changeHandler.bind(this);
-        this.submitHandler = this.submitHandler.bind(this);
     }
 
     changeHandler(event) {
@@ -60,10 +38,6 @@ class App extends React.Component {
         }
 
         fetchTimetable();
-
-        return(
-            <Timetable data={this.data} />
-        );
     }
 
     render() {
@@ -95,10 +69,11 @@ class App extends React.Component {
                     <div className="form-submit">
                         <label>
                             Search
-                            <input type="Submit" name="search for course" onClick={this.submitHandler} />
+                            <input type="Submit" name="search for course" onSubmit={this.submitHandler.bind(this)} />
                         </label>
                     </div>
                 </form>
+                {this.state.data !== [] ? <Timetable data={this.state.data} /> : ''}
             </div>
         );
     }

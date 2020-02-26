@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 table {
+    border-collapse: collapse;
+}
+
+table, th, td {
     font-family: 'Roboto';
-    border: 1px solid black;
+    font-size: 30px;
+    color: #A7B8F8;
+    border: 1px solid #AE9C45;
 }
