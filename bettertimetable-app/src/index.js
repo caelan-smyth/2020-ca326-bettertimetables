@@ -26,16 +26,14 @@ class App extends React.Component {
         event.preventDefault();
             
         const fetchTimetable = async () => {
-            let url = "http://localhost:5000/test"//api link goes here/ + {this.state.course} + "/" + {this.state.year} + "/" + {this.state.semester};
-            const response = await fetch(url);        
-            const items = await response.json();
-            console.log(items);
-            this.setState({data: items.results})
+            fetch('http://localhost:5000/test')
+            .then(res => res.json())
+            .then((items => {
+                this.setState({ data: items })
+            }))
+            .catch((e) =>(console.log(e.message)))
+            console.log(this.state.data)
         };
-
-        if (!this.state.data.length) {
-            return <div>Timetable not found</div>
-        }
 
         fetchTimetable();
     }
@@ -69,11 +67,11 @@ class App extends React.Component {
                     <div className="form-submit">
                         <label>
                             Search
-                            <input type="Submit" name="search for course" onSubmit={this.submitHandler.bind(this)} />
+                            <input type="Submit" value="Search" name="search for course" onClick={this.submitHandler.bind(this)} />
                         </label>
                     </div>
                 </form>
-                {this.state.data !== [] ? <Timetable data={this.state.data} /> : ''}
+                {this.state.data.length !== 0 ? <Timetable data={this.state.data} /> : ''}
             </div>
         );
     }

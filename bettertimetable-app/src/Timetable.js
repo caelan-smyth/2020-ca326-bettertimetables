@@ -5,7 +5,7 @@ export default class Timetable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: this.props.data || []
+            data: this.props.data
         };
 
         this.formatRows = this.formatRows.bind(this);
@@ -42,7 +42,7 @@ export default class Timetable extends React.Component {
     }
 
     render() {
-        {console.log(this.state.data)}
+        {console.log(this.props.data)}
         return (
             <div role="table">
                 <table>
