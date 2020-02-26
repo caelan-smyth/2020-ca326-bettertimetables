@@ -72,6 +72,16 @@ test_data =     {
 
     }
 
+@app.after_request
+def after_request(response):
+	'''
+	Allows for Cross Origin Requests.
+	'''
+	response.headers.add('Access-Control-Allow-Origin', '*')
+	response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+	response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+	return response
+
 
 @app.route('/hello') # test top level route
 def index():
