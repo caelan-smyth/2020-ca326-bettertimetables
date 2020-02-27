@@ -4,6 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    line-height: 45px;
     font-family: 'Roboto';
     font-size: 30px;
     background-color: #272822;
@@ -20,7 +21,6 @@ label {
     display: flex;
     flex-direction: row;
     width: 600px;
-    line-height: 30px;
     margin-bottom: 30px;
 }
 

@@ -16,16 +16,16 @@ class App extends React.Component {
         this.changeHandler = this.changeHandler.bind(this);
     }
 
-    changeHandler(event) {
+    changeHandler(event) { //take form parameters and store them in state
         let name = event.target.name;
         let value = event.target.value;
         this.setState({[name]: value});
     }
 
-    submitHandler(event) {
+    submitHandler(event) { //do something when the user submits the form
         event.preventDefault();
             
-        const fetchTimetable = async () => {
+        const fetchTimetable = async () => { //get data from the API and store it in state
             fetch('http://localhost:5000/test')
             .then(res => res.json())
             .then((items => {
@@ -38,11 +38,11 @@ class App extends React.Component {
         fetchTimetable();
     }
 
-    render() {
+    render() { //main function for displaying React components
         return (
             <div role="main">
                 <h1 title="Search by Course code">Programme Search</h1>
-                <form method="get">
+                <form method="get" name="search form">
                     <div className="form-field">
                         <label>
                             Programme:
@@ -67,7 +67,7 @@ class App extends React.Component {
                     <div className="form-submit">
                         <label>
                             Search
-                            <input type="Submit" value="Search" name="search for course" onClick={this.submitHandler.bind(this)} />
+                            <input type="Submit" value="Search" name="search for course button" onClick={this.submitHandler.bind(this)} />
                         </label>
                     </div>
                 </form>
