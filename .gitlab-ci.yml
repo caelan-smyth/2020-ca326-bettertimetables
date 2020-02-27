@@ -2,12 +2,12 @@ stages:
   # - test
   - lint
 
-test app:
-  image: python:latest
-  stage: test
-  script:
-    - cd python
-    - python tests.py
+# test app:
+#   image: python:latest
+#   stage: test
+#   script:
+#     - cd python
+#     - python tests.py
 
 eslint :
   image: node:latest
