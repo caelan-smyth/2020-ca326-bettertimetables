@@ -13,7 +13,7 @@ eslint :
   image: node:latest
   stage : lint
   script:
-    - npm install -g eslint eslint-plugin-react
+    - npm install -g eslint eslint-plugin-react eslint-config-airbnb
     - cd bettertimetable-app/src
     - eslint Timetable.js
     - eslint index.js
