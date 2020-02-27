@@ -10,9 +10,10 @@ test app:
     - python tests.py
 
 eslint :
-  image: node
+  image: node:latest
   stage : lint
   script:
-    - cd bettertimetable-app/src/
-    - npm i eslint
-    - node_modules/eslint/bin/eslint.js . --ext '.js'
+    - npm install -g eslint
+    - cd bettertimetable-app/src
+    - eslint Timetable.js
+    - eslint index.js
