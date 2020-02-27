@@ -1,5 +1,6 @@
 stages:
   - test
+  - lint
 
 test app:
   image: python:latest
@@ -7,3 +8,12 @@ test app:
   script:
     - cd python
     - python tests.py
+
+eslint :
+  image: node
+  stage : lint
+  script:
+    - cd bettertimetable-app/src/
+    - npm install eslint
+    - eslint Timetable.js
+    - eslint index.js
