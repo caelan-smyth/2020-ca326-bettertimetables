@@ -18,5 +18,6 @@ eslint :
     - cd bettertimetable-app
     - npm install
     - npm install -g eslint 
+    - npm install babel-eslint --save-dev
     - npm install -g eslint-plugin-react
     - node_modules/.bin/eslint src/. --ext '.js'
