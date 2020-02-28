@@ -3,7 +3,7 @@ stages:
   - lint
 cache:
   paths:
-    -bettertimetable-app/node_modules/
+    - bettertimetable-app/node_modules/
 # test app:
 #   image: python:latest
 #   stage: test
