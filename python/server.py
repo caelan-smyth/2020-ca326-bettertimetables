@@ -1,9 +1,26 @@
 from flask import Flask, jsonify, request, Response, abort
 from flask_restful import Resource, Api, reqparse
 from timetable_getter import get_timetable
+from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 api = Api(app)
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(basedir, 'timetables.db')
+db = SQLAlchemy(app)
+
+class Timetable(db.Model):
+    code = db.Column(db.String, primary_key=True)
+    year = db.Column(db.Integer)
+    semester = db.Column(db.Integer)
+    jsontable = db.Column(db.Text)
+
+    def __repr__(self):
+        return "course {}, year {}, semester {}".format(self.code, self.year, self.semester)
+
+
 
 
 
@@ -87,23 +104,11 @@ def after_request(response):
 def index():
     return "Hello, World!"
 
-@app.route('/test', methods=['GET'])
-def send_test_data():
-    return jsonify(test_data)
-
-
-@app.route("/", methods = ['POST']) # opting for a top level POST of json with all form info.
-def get_data(): # timetable getter will probably just get called here, but not sure where the DB will fit in.
-    if not request.json:
-        abort(400)
-    data = request.json
-    return data
-
 @app.route("/table") 
 def table():
     return get_timetable("http://oisin.site/timetable")
 
-
+# this will be the route that handles everything. get request with dynamic route params will pull from DB
 @app.route("/timetable/<string:course>/<string:year>/<string:semester>", methods=['GET'])
 def handle_timetable(course, year, semester):
     return jsonify(course, year, semester)
@@ -112,14 +117,6 @@ def handle_timetable(course, year, semester):
 
 
 
-# @app.route('/test') # test first layer route
-# def get_test():
-#     return jsonify({'test_data' : test_data})
-
-# @app.route()
-# def find_route(route):
-#     if route == "hello":
-#         return "hello"
 
 
 if __name__ == '__main__':

@@ -82,4 +82,3 @@ class courseTimetable(object):
         return len(self.days)
 
 
-
