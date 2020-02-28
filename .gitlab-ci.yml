@@ -14,8 +14,10 @@ eslint :
   stage : lint
   script:
     - cd bettertimetable-app
-    - npm install eslint --save-dev
-    - npm install eslint-plugin-react --save-dev # eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react-hooks
+    - npm install --save-dev eslint-plugin-flowtype@latest
+    - npm install --save-dev typescript@latest
+    - npm install -g eslint
+    - npm install -g eslint-plugin-react # eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react-hooks
     # - eslint --init
     - eslint src/Timetable.js
     - eslint src/index.js
