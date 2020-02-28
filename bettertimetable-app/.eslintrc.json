@@ -3,5 +3,12 @@
         // "airbnb",
         // "eslint/recommended",
         "plugin:react/recommended"
-    ]
+    ],
+
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    }
 }
