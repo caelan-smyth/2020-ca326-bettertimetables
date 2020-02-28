@@ -16,5 +16,7 @@ eslint :
   stage : lint
   script:
     - cd bettertimetable-app
-    - npm install eslint eslint-plugin-react
+    - npm install
+    - npm install -g eslint 
+    - npm install -g eslint-plugin-react
     - node_modules/.bin/eslint src/. --ext '.js'
