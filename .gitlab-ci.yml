@@ -19,5 +19,7 @@ eslint :
     - npm install
     - npm install -g eslint 
     - npm install babel-eslint --save-dev
+    - npm install eslint-plugin-flowtype --save-dev
+    - npm install typescript --save-dev
     - npm install -g eslint-plugin-react
     - node_modules/.bin/eslint src/. --ext '.js'
