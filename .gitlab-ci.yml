@@ -1,7 +1,9 @@
 stages:
   # - test
   - lint
-
+cache:
+  paths:
+    -bettertimetable-app/node_modules/
 # test app:
 #   image: python:latest
 #   stage: test
@@ -14,4 +16,5 @@ eslint :
   stage : lint
   script:
     - cd bettertimetable-app
+    - npm install eslint eslint-plugin-react
     - node_modules/.bin/eslint src/. --ext '.js'
