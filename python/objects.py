@@ -51,6 +51,9 @@ class timetableDay(object):
     def add_timeslot(self, timeslot):
         self.timeslots.append(timeslot)
 
+    def non_empty(self):
+        return len([i for i in self.timeslots if i is not None])
+
 
 class courseTimetable(object):
     def __init__(self, course_code, year, semester, days=list()):
@@ -77,6 +80,5 @@ class courseTimetable(object):
 
     def dayslength(self):
         return len(self.days)
-
 
 
