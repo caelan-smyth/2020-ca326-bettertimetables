@@ -26,7 +26,7 @@ class App extends React.Component {
         event.preventDefault();
             
         const fetchTimetable = async () => { //get data from the API and store it in state
-            fetch('http://localhost:5000/test')
+            fetch('http://localhost:5000/test/')
             .then(res => res.json())
             .then((items => {
                 this.setState({ data: items })
@@ -71,7 +71,7 @@ class App extends React.Component {
                         </label>
                     </div>
                 </form>
-                {this.state.data.length !== 0 ? <Timetable data={this.state.data} /> : ''}
+                {this.state.data.length !== 0 ? <Timetable data={this.state.data} /> : ''} {/*display table if data is present otherwise display nothing*/}
             </div>
         );
     }
