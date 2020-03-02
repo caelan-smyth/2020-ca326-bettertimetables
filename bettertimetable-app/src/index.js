@@ -26,7 +26,8 @@ class App extends React.Component {
         event.preventDefault();
             
         const fetchTimetable = async () => { //get data from the API and store it in state
-            fetch('http://localhost:5000/test/')
+            let url = 'http://localhost:5000/' + this.state.course + '/' + this.state.year + '/' + this.state.semester
+            fetch(url)
             .then(res => res.json())
             .then((items => {
                 this.setState({ data: items })
