@@ -64,11 +64,12 @@ def main():
     s = f.read()
 
     table = timetableify(s, "case", 2, 1, 0, 0)
+    print(table.week_to_json())
     # print(table)
     f = open("tablestring.txt", "w")
     f.write(str(table))
-    for day in table:
-        print(day.daylength())
+    # for day in table:
+    #     print(day.daylength())
 
 
 

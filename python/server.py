@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, Response, abort
 from flask_restful import Resource, Api, reqparse
 from timetable_getter import get_timetable
 from flask_sqlalchemy import SQLAlchemy
+from parser import timetableify
 import os
 
 app = Flask(__name__)
@@ -98,6 +99,15 @@ def after_request(response):
 @app.route('/test') # test top level route
 def index():
     return jsonify(test_data)
+
+@app.route('/CASE/2/2')
+def testcasetable():
+    f = open("soup.txt", "r")
+    s = f.read()
+    table = timetableify(s, "case", 2, 2, 0, 0)
+    j = table.week_to_json()
+    return jsonify(j)
+
 
 @app.route("/table") 
 def table():

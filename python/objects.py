@@ -98,4 +98,15 @@ class courseTimetable(object):
         return len(self.days)
 
     # TODO: to_json method to populate db objects !important
+    def week_to_json(self):
+        d = {
+            "code" : self.course_code,
+            "year" : self.year,
+            "sem" : self.semester,
+            "days" : []
+        }
+        for day in self.days:
+            d["days"].append(day.day_to_json())
+        return d
+
 
