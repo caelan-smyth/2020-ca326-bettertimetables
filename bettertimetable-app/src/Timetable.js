@@ -17,7 +17,7 @@ export default class Timetable extends React.Component {
         timeslots.map((entry) => {
             if (entry.isvalid) {
                 result.push(
-                    <td>{entry.code} {entry.title} {entry.loc} {entry.weeks}</td>
+                    <td>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
                 )
             }
             else {
