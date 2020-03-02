@@ -48,19 +48,11 @@ def parse_daylist(s, day): # pass one daystring at a time. returns a list of tim
 def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up soup
     final_timetable = courseTimetable(code, year, sem)
     days = make_lists(s)
-    # print(days[2])
     week = ["Mon", "Tue", "Wed", "Thu", "Fri"]
-    # for i in range(2):
-    # final_timetable.add(copy.deepcopy(parse_daylist(days[0], week[0])))
-    # final_timetable.add(copy.deepcopy(parse_daylist(days[1], week[1])))
     for i in range(5):
         final_timetable.add(parse_daylist(days[i], week[i]))
-
-
-    # f = open("final.txt", "w")
-    # f.write(str(parse_daylist(days[0], week[0])))
-
-    # print(parse_daylist(days[1], week[1]))
+    # TODO: normalise slots to 30mins here. cross ref durations and dupe long slots
+    # each list should be the same length or 2x.
 
     return final_timetable
 
@@ -78,10 +70,7 @@ def main():
     for day in table:
         print(day.daylength())
 
-    # days = make_lists(s)
-    # print(days[1])
-    # for key in parse_daylist(days[4], "Fri"):
-    #     print(key)
+
 
 
 

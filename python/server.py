@@ -21,11 +21,6 @@ class Timetable(db.Model):
         return "course {}, year {}, semester {}".format(self.code, self.year, self.semester)
 
 
-
-
-
-
-
 test_data =     {
         "code" : "CASE",
         "year" : 2,
@@ -100,9 +95,9 @@ def after_request(response):
 	return response
 
 
-@app.route('/hello') # test top level route
+@app.route('/test') # test top level route
 def index():
-    return "Hello, World!"
+    return jsonify(test_data)
 
 @app.route("/table") 
 def table():

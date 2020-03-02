@@ -16,19 +16,23 @@ class Timeslot(object):
         s += ("Location: {}\n".format(self.location))
         s += ("Title: {} {}\n".format(self.code, self.title))
         s += ("Weeks: {}\n-----\n".format(self.weeks))
-
         return s
+
+    def slot_to_json(self):
+        return {
+            "isvalid" : 1,
+            "code" : self.code,
+            "loc": self.location,
+            "title": self.title,
+            "weeks": self.weeks
+        }
+
 
 
 class timetableDay(object):
     def __init__(self, day, timeslots=list()):
         self.day = day
         self.timeslots = timeslots[:]
-
-    # def __str__(self):
-    #     print(self.day)
-    #     for timeslot in self.timeslots:
-    #         print(timeslot)
 
     def __iter__(self):
         for slot in self.timeslots:
@@ -47,12 +51,24 @@ class timetableDay(object):
     def daylength(self):
         return len(self.timeslots)
 
-
     def add_timeslot(self, timeslot):
         self.timeslots.append(timeslot)
 
     def non_empty(self):
         return len([i for i in self.timeslots if i is not None])
+    
+    def day_to_json(self):
+        d = {
+            "day" : self.day,
+            "timeslots" : []
+        }
+
+        for slot in self.timeslots:
+            if slot:
+                d["timeslots"].append(slot.slot_to_json())
+            else:
+                d["timeslots"].append({"isvalid":0})
+        return d
 
 
 class courseTimetable(object):
@@ -81,4 +97,5 @@ class courseTimetable(object):
     def dayslength(self):
         return len(self.days)
 
+    # TODO: to_json method to populate db objects !important
 
