@@ -18,6 +18,8 @@ def get_timetable(url):
     f.write(cleanup(soup))
 
     tables = get_tables(oldsoup)
+    print(colspan_getter(tables))
+    print(len(colspan_getter(tables)))
     # return jsonify(colspan_getter(tables), rowspan_getter(tables))
     # return rowspan_getter(tables)
     # return jsonify(make_lists(cleanup(soup)))

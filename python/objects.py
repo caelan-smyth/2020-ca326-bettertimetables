@@ -56,19 +56,44 @@ class timetableDay(object):
 
     def non_empty(self):
         return len([i for i in self.timeslots if i is not None])
+
+    def get_timeslots(self):
+        return self.timeslots
+
+    def set_timeslots(self, l):
+        self.timeslots = l
     
     def day_to_json(self):
-        d = {
-            "day" : self.day,
-            "timeslots" : []
-        }
+        if len(self.timeslots) < 19:
+            d = {
+                "day" : self.day,
+                "timeslots" : []
+            }
 
-        for slot in self.timeslots:
-            if slot:
-                d["timeslots"].append(slot.slot_to_json())
-            else:
-                d["timeslots"].append({"isvalid":0})
-        return d
+            for slot in self.timeslots:
+                if slot:
+                    d["timeslots"].append(slot.slot_to_json())
+                else:
+                    d["timeslots"].append({"isvalid":0})
+            return [d]
+
+        else:
+            d1 = {"day":self.day, "timeslots":[]}
+            d2 = {"day":self.day, "timeslots":[]}
+            line1 = self.timeslots[:18]
+            line2 = self.timeslots[18:]
+
+            for slot in line1:
+                if slot:
+                    d1["timeslots"].append(slot.slot_to_json())
+                else:
+                    d1["timeslots"].append({"isvalid":0})
+            for slot in line2:
+                if slot:
+                    d2["timeslots"].append(slot.slot_to_json())
+                else:
+                    d2["timeslots"].append({"isvalid":0})
+            return [d1, d2] 
 
 
 class courseTimetable(object):
@@ -76,7 +101,7 @@ class courseTimetable(object):
         self.course_code = course_code
         self.year = year
         self.semester = semester
-        self.days = days
+        self.days = days[:]
 
     def __iter__(self):
         for day in self.days:
@@ -105,8 +130,14 @@ class courseTimetable(object):
             "sem" : self.semester,
             "days" : []
         }
+        
         for day in self.days:
-            d["days"].append(day.day_to_json())
+            dayjson = day.day_to_json()
+            if len(dayjson) == 1:
+                d["days"].append(dayjson[0])
+            else:
+                d["days"].append(dayjson[0])
+                d["days"].append(dayjson[1])
         return d
 
 

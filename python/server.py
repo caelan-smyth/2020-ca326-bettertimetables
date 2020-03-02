@@ -104,7 +104,10 @@ def index():
 def testcasetable():
     f = open("soup.txt", "r")
     s = f.read()
-    table = timetableify(s, "case", 2, 2, 0, 0)
+
+    colspan = [2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 4]
+
+    table = timetableify(s, "case", 2, 2, 0, colspan)
     j = table.week_to_json()
     return jsonify(j)
 
