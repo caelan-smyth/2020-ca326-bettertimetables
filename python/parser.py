@@ -55,7 +55,6 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
     # TODO: normalise slots to 30mins here. cross ref durations and dupe long slots
     # each list should be the same length or 2x.
     non_empty = [day.non_empty() for day in final_timetable]
-    non_empty = non_empty[:]
     durations = [] 
     print(non_empty)
     # if len(durations) == 0:
@@ -64,9 +63,6 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
         durations.append(tmpcolspan[:key])
         tmpcolspan = tmpcolspan[key:]
     durations = [i for i in durations if len(i) > 0]
-
-    print("printing durations now")
-    print(durations)
     # durations is a list of list representing dur of non empty slots for each day.
     # now use setters and getters, build a new list with duped slots and replace.
     currentday = 0
@@ -79,24 +75,14 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
             if slot is None:
                 newslots.append(None)
             else:
-                 # pass
                 for i in range(current_durations[nonemptycounter]):
-                    newslots.append(slot)
-
-                # print(current_durations[nonemptycounter])
-                
+                    newslots.append(slot)                
                 nonemptycounter += 1
 
         if len(newslots) > 18:
             newslots = newslots[:18] + newslots[20:]
         day.set_timeslots(newslots)
         currentday += 1
-
-
-
-
-
-
     return final_timetable
 
 
