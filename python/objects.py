@@ -25,7 +25,7 @@ class Timeslot(object):
             "loc": self.location,
             "title": self.title,
             "weeks": self.weeks,
-            "type": self.slot_type
+            "type": self.slot_type.strip()
         }
 
 
