@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0.5rem;
-}
-
-table, th, td {
+table, td {
     font-family: 'Roboto';
     font-size: .55rem;
     line-height: 1rem;
-    color: #A7B8F8;
-    border: 1px solid #AE9C45;
+    color: #000000;
+    font-weight: bolder;
+    padding: 0.12rem;
+}
+
+th {
+    font-family: 'Roboto';
+    font-size: .6rem;
+    line-height: 1rem;
+    color: #99aab5;
+    font-weight: bolder;
+}
+
+td {
+    border-radius: 0.4rem;
 }

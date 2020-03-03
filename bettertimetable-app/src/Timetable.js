@@ -16,9 +16,22 @@ export default class Timetable extends React.Component {
         let result = [];
         timeslots.map((entry) => {
             if (entry.isvalid) {
-                result.push(
-                    <td>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
-                )
+                console.log(entry.type)
+                if (entry.type === "Lec.") {
+                    result.push(
+                        <td style={{backgroundColor:"#F92672"}}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
+                    )
+                }
+                else if (entry.type === "Prac.") {
+                    result.push(
+                        <td style={{backgroundColor:"#7289da"}}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
+                    )
+                }
+                else {
+                    result.push(
+                        <td style={{backgroundColor:"#FD971F"}}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
+                    )
+                }
             }
             else {
                 result.push(
@@ -32,7 +45,7 @@ export default class Timetable extends React.Component {
     formatRows() {
         let result = []
         console.log(this.state.data)
-        this.state.data.days.map((item) => {
+        this.props.data.days.map((item) => {
             result.push(
                 <tr>
                     <th name={item.day} scope="Row">{item.day}</th>
@@ -44,7 +57,7 @@ export default class Timetable extends React.Component {
     }
 
     render() {
-        {console.log(this.props.data)}
+        {console.log(this.props.data, "memes")}
         return (
             <div role="table">
                 <table name="timetable">

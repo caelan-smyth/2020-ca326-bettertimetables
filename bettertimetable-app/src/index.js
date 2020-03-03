@@ -10,10 +10,40 @@ class App extends React.Component {
             course: '',
             year: null,
             semester: null,
-            data: [] 
+            data: [],
+            type: '',
+            day: '',
         };
 
+        this.filterDays = this.filterDays.bind(this);
+        this.filterType = this.filterType.bind(this);
+        this.filter = this.filter.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
+    }
+
+    filterType = (timeslots) => {
+        if(timeslots.isvalid === 0 || timeslots.type !== this.state.type) return {isvalid: 0}
+        return timeslots
+    }
+
+    filterDays = (day) => {
+        if(day.day != this.state.day) {
+            return {day: '', timeslots: []}
+        }
+        return day;
+    }
+
+    filter = (data) => {
+        let days = data.days
+        console.log(data)
+        if(this.state.day !== '')
+        days = days.map((day) => this.filterDays(day))
+        if(this.state.type !== '') {
+        days = days.map((day) => {
+            return { day: day.day, timeslots: day.timeslots.map((timeslots) => this.filterType(timeslots))}
+        })
+    }
+        return {...data, days}
     }
 
     changeHandler(event) { //take form parameters and store them in state
@@ -68,11 +98,35 @@ class App extends React.Component {
                     <div className="form-submit">
                         <label>
                             Search
-                            <input type="Submit" value="Search" name="search for course button" onClick={this.submitHandler.bind(this)} />
+                            <button name="Search for course" onClick={this.submitHandler.bind(this)}>Search</button>
+                        </label>
+                    </div>
+                    <div className="form-filtering">
+                        <label>
+                            Filter by Day:
+                            <select name="day" onChange={this.changeHandler}>
+                                <option value='' name="no filter">None</option>
+                                <option value="Mon" name="Monday filter">Monday</option>
+                                <option value="Tue" name="Tuesday filter">Tuesday</option>
+                                <option value="Wed" name="Wednesday filter">Wednesday</option>
+                                <option value="Thu" name="Thursday filter">Thursday</option>
+                                <option value="Fri" name="Friday filter">Friday</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div className="form-filtering">
+                        <label>
+                            Filter by Type:
+                            <select name="type" onChange={this.changeHandler}>
+                                <option value=''>None</option>
+                                <option value="Lec.">Lecture</option>
+                                <option value="Prac.">Practical</option>
+                                <option value="Tut.">Tutorial</option>
+                            </select>
                         </label>
                     </div>
                 </form>
-                {this.state.data.length !== 0 ? <Timetable data={this.state.data} /> : ''} {/*display table if data is present otherwise display nothing*/}
+                {this.state.data.length !== 0 ? <Timetable data={this.filter(this.state.data)} /> : ''} {/*display table if data is present otherwise display nothing*/}
             </div>
         );
     }
