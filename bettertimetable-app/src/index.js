@@ -22,19 +22,19 @@ class App extends React.Component {
         this.changeHandler = this.changeHandler.bind(this);
     }
 
-    filterType = (timeslots) => {
+    filterType = (timeslots) => { //allow users to filter timetable by timetable item type
         if(timeslots.isvalid === 0 || timeslots.type !== this.state.type) return {isvalid: 0}
         return timeslots
     }
 
-    filterDays = (day) => {
+    filterDays = (day) => { //allow users to filter timetable by day
         if(day.day != this.state.day) {
             return {day: '', timeslots: []}
         }
         return day;
     }
 
-    filter = (data) => {
+    filter = (data) => { //allows the previous filtering functions to execute
         let days = data.days
         console.log(data)
         if(this.state.day !== '')
