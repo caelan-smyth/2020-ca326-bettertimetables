@@ -2,17 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Timetable from './Timetable.js';
 import './index.css';
-
+// JSON.parse(localStorage.getItem("data")).data
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            course: '',
-            year: null,
-            semester: null,
-            data: [],
+            course: '' || localStorage.getItem("course"),
+            year: null || localStorage.getItem("year"),
+            semester: null || localStorage.getItem("semester"),
+            data: localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")).data : [],
             type: '',
             day: '',
+            error: ''
         };
 
         this.filterDays = this.filterDays.bind(this);
@@ -50,6 +51,7 @@ class App extends React.Component {
         let name = event.target.name;
         let value = event.target.value;
         this.setState({[name]: value});
+        localStorage.setItem(name, value);
     }
 
     submitHandler(event) { //do something when the user submits the form
@@ -61,8 +63,9 @@ class App extends React.Component {
             .then(res => res.json())
             .then((items => {
                 this.setState({ data: items })
+                localStorage.setItem("data", JSON.stringify({data: items}))
             }))
-            .catch((e) =>(console.log(e.message)))
+            .catch((e) =>(this.setState({error: "Unable to retrieve specified timetable. Check inputs and try again."})))
             console.log(this.state.data)
         };
 
@@ -77,19 +80,19 @@ class App extends React.Component {
                     <div className="form-field">
                         <label>
                             Programme:
-                            <input type="text" name="course" placeholder="Programme Code" onChange={this.changeHandler} />
+                            <input value={this.state.course} type="text" name="course" placeholder="Programme Code" onChange={this.changeHandler} />
                         </label>
                     </div>
                     <div className="form-field">
                         <label>
                             Year of Study:
-                            <input type="text" name="year" placeholder="Year" onChange={this.changeHandler} />
+                            <input value={this.state.year} type="text" name="year" placeholder="Year" onChange={this.changeHandler} />
                         </label>
                     </div>
                     <div className="form-select">
                         <label>
                             Semester:
-                            <select name="semester" onChange={this.changeHandler} >
+                            <select value={this.state.semester} name="semester" onChange={this.changeHandler} >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -126,6 +129,9 @@ class App extends React.Component {
                         </label>
                     </div>
                 </form>
+
+                {this.state.error ? <div role="alert">Error - {this.state.error}</div> : ''}
+                {/* {console.log(JSON.parse(localStorage.getItem("data")).data)} */}
                 {this.state.data.length !== 0 ? <Timetable data={this.filter(this.state.data)} /> : ''} {/*display table if data is present otherwise display nothing*/}
             </div>
         );
