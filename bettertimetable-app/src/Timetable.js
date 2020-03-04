@@ -60,6 +60,7 @@ export default class Timetable extends React.Component {
         {console.log(this.props.data, "memes")}
         return (
             <div role="table">
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <table name="timetable">
                     <thead>
                         <tr>

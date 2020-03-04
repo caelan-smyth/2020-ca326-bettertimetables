@@ -75,6 +75,7 @@ class App extends React.Component {
     render() { //main function for displaying React components
         return (
             <div role="main">
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <h1 title="Search by Course code">Programme Search</h1>
                 <form method="get" name="search form">
                     <div className="form-field">
