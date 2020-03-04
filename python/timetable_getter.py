@@ -13,17 +13,12 @@ def get_timetable(url):
     soup = BeautifulSoup(html.content, 'html.parser')
     oldsoup = soup
     soup = str(soup)
-    # print(cleanup(soup))
-    f = open("soup.txt", "w+")
-    f.write(cleanup(soup))
+    # f = open("soup.txt", "w+")
+    # f.write(cleanup(soup))
 
     tables = get_tables(oldsoup)
-    print(colspan_getter(tables))
-    print(len(colspan_getter(tables)))
-    # return jsonify(colspan_getter(tables), rowspan_getter(tables))
-    # return rowspan_getter(tables)
-    # return jsonify(make_lists(cleanup(soup)))
-
+    colspan = colspan_getter(tables)
+    return [cleanup(soup), colspan]
 
 
 def get_tables(soup): # extracts tables from soup. needed to extract rowspan and colspan

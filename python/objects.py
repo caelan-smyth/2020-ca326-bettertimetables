@@ -1,3 +1,4 @@
+import json
 class Timeslot(object):
     def __init__(self, day, slot_type, location, title, code, weeks, time=None):
         self.day = day
@@ -139,6 +140,6 @@ class courseTimetable(object):
             else:
                 d["days"].append(dayjson[0])
                 d["days"].append(dayjson[1])
-        return d
+        return json.dumps(d)
 
 

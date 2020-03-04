@@ -4,6 +4,8 @@ from timetable_getter import get_timetable
 from flask_sqlalchemy import SQLAlchemy
 from parser import timetableify
 import os
+import datetime
+import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -11,79 +13,29 @@ api = Api(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(basedir, 'timetables.db')
 db = SQLAlchemy(app)
-
+# test = Timetable(code="TEST", year=1, semester=1, jsontable="{'some':'json'}"")
 class Timetable(db.Model):
-    code = db.Column(db.String, primary_key=True)
+    code = db.Column(db.String)
     year = db.Column(db.Integer)
     semester = db.Column(db.Integer)
-    jsontable = db.Column(db.Text)
+    jsontable = db.Column(db.Text, primary_key=True)
+    # uid = db.Column(db.String, default=code+'-'+year+'-'+semester, primary_key=True)
+    creationdate = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     def __repr__(self):
         return "course {}, year {}, semester {}".format(self.code, self.year, self.semester)
 
+    def get_json(self):
+        return self.jsontable
 
-test_data =     {
-        "code" : "CASE",
-        "year" : 2,
-        "sem" : 1,
-        "days" : [
-            {
-                "day" : "Monday",
-                "timeslots" : [
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {
-                        "isvalid" : 1,
-                        "code" : "CA266",
-                        "title" : "Probstats",
-                        "loc" : "GLA.LG25"
-                    },
-                    {
-                        "isvalid" : 1,
-                        "code" : "CA266",
-                        "title" : "Probstats",
-                        "loc" : "GLA.LG25"
-                    },
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {
-                        "isvalid" : 1,
-                        "code" : "CA269",
-                        "title" : "Prog 4",
-                        "loc" : "GLA.LG25"
-                    },
-                                        {
-                        "isvalid" : 1,
-                        "code" : "CA269",
-                        "title" : "Prog 4",
-                        "loc" : "GLA.LG25"
-                    },
-                    {
-                        "isvalid" : 1,
-                        "code" : "CA269",
-                        "title" : "Prog 4",
-                        "loc" : "GLA.LG25"
-                    },
-                                        {
-                        "isvalid" : 1,
-                        "code" : "CA269",
-                        "title" : "Prog 4",
-                        "loc" : "GLA.LG25"
-                    },
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {"isvalid" : 0},
-                    {"isvalid" : 0}
+def url_to_database(url, course_code, year, semester):
+    tokens = get_timetable(url)
+    timetable_object = timetableify(tokens[0], course_code, year, semester, 0, tokens[1])
 
-                ]
-            }
-        ]
+    db_timetable = Timetable(code=course_code, year=year, semester=semester, jsontable=timetable_object.week_to_json())
+    return db_timetable
 
-    }
+
 
 @app.after_request
 def after_request(response):
@@ -95,11 +47,6 @@ def after_request(response):
 	response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
 	return response
 
-
-@app.route('/test') # test top level route
-def index():
-    return jsonify(test_data)
-
 @app.route('/CASE/2/2')
 def testcasetable():
     f = open("soup.txt", "r")
@@ -109,17 +56,15 @@ def testcasetable():
 
     table = timetableify(s, "case", 2, 2, 0, colspan)
     j = table.week_to_json()
-    return jsonify(j)
+    return jsonify(json.loads(j))
 
-
-@app.route("/table") 
-def table():
-    return get_timetable("http://oisin.site/timetable")
 
 # this will be the route that handles everything. get request with dynamic route params will pull from DB
 @app.route("/timetable/<string:course>/<string:year>/<string:semester>", methods=['GET'])
 def handle_timetable(course, year, semester):
-    return jsonify(course, year, semester)
+    data = Timetable.query.filter_by(code=course, year=year, semester=semester).first().get_json()
+    return jsonify(json.loads(data))
+
     
     
 
