@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-table, td {
+table{
     font-family: 'Roboto';
     font-size: .55rem;
     line-height: 1rem;
@@ -19,4 +19,10 @@ th {
 
 td {
     border-radius: 0.4rem;
+    font-family: 'Roboto';
+    font-size: .55rem;
+    line-height: 0.87rem;
+    color: #000000;
+    font-weight: bolder;
+    padding: 0.12rem;
 }

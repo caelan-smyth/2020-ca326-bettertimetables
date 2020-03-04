@@ -38,7 +38,7 @@ input, button {
     margin-left: 1rem;
 }
 
-input, select {
+input, select, button {
     border-radius: 0.4rem;
     font-size: 1.2rem;
 }
