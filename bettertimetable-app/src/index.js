@@ -28,7 +28,7 @@ class App extends React.Component {
     }
 
     filterDays = (day) => { //allow users to filter timetable by day
-        if(day.day != this.state.day) {
+        if(day.day !== this.state.day) {
             return {day: '', timeslots: []}
         }
         return day;
