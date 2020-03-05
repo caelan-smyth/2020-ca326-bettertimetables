@@ -15,7 +15,7 @@ This web-app is intended to be used as a substitute for DCU's currently offered 
 ## 2. Searching for a Timetable
 To search for a timetable, a user must fill out three fields on the following form:
 ![](https://i.imgur.com/Ijje0tI.png)
-The Programme Code is the same code used to search the currently offered timetable services (e.g. Computer Applications and Software Engineering = CASE).
+The Programme Code is the same code used to search the currently offered timetable services (e.g. Computer Applications and Software Engineering = CASE). Programme Codes must be case-sensitive.
 The Year of Study is the current year that you are in, in the range 1-4.
 The Semester is the semester for which you are trying to view the timetable. This can be selected from a drop-down menu within the form.
 ![](https://i.imgur.com/J79eqkV.png)
