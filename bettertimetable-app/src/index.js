@@ -63,6 +63,7 @@ class App extends React.Component {
             .then(res => res.json())
             .then((items => {
                 this.setState({ data: items })
+                this.setState({error: ''})
                 localStorage.setItem("data", JSON.stringify({data: items}))
             }))
             .catch((e) =>(this.setState({error: "Unable to retrieve specified timetable. Check inputs and try again."})))
