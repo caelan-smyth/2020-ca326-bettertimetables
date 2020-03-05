@@ -60,9 +60,12 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
     # if len(durations) == 0:
     tmpcolspan = colspan[:]
     for key in non_empty:
-        durations.append(tmpcolspan[:key])
-        tmpcolspan = tmpcolspan[key:]
-    durations = [i for i in durations if len(i) > 0]
+        if key !=0:
+            durations.append(tmpcolspan[:key])
+            tmpcolspan = tmpcolspan[key:]
+        else:
+            durations.append([])
+    # durations = [i for i in durations if len(i) > 0]
     # durations is a list of list representing dur of non empty slots for each day.
     # now use setters and getters, build a new list with duped slots and replace.
     currentday = 0
@@ -79,9 +82,21 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
                     newslots.append(slot)                
                 nonemptycounter += 1
 
+        # if len(newslots) > 18:
+        #     newslots = newslots[:18] + newslots[20:]
+        newnewslots = newslots[:18]
         if len(newslots) > 18:
-            newslots = newslots[:18] + newslots[20:]
-        day.set_timeslots(newslots)
+            restrows = newslots[18:]
+            list_rest_rows = [restrows[i:i+20] for i in range(0, len(restrows), 20)]
+            for row in list_rest_rows:
+                newnewslots += row[2:]
+            # while i < len(restrows):
+            #     newnewslots += (restrows[i+2:i+20])
+            #     i += 20
+
+        
+
+        day.set_timeslots(newnewslots)
         currentday += 1
     return final_timetable
 

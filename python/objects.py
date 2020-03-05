@@ -1,4 +1,5 @@
 import json
+# import numpy as np
 class Timeslot(object):
     def __init__(self, day, slot_type, location, title, code, weeks, time=None):
         self.day = day
@@ -79,11 +80,11 @@ class timetableDay(object):
                     d["timeslots"].append({"isvalid":0})
             return [d]
 
-        else:
+        elif len(self.timeslots) > 18 and len(self.timeslots) < 37:
             d1 = {"day":self.day, "timeslots":[]}
             d2 = {"day":self.day, "timeslots":[]}
             line1 = self.timeslots[:18]
-            line2 = self.timeslots[18:]
+            line2 = self.timeslots[18:36]
 
             for slot in line1:
                 if slot:
@@ -96,6 +97,32 @@ class timetableDay(object):
                 else:
                     d2["timeslots"].append({"isvalid":0})
             return [d1, d2] 
+
+        else:
+            chunks = [self.timeslots[i:i + 18] for i in range(0, len(self.timeslots), 18)]
+            rows = len(chunks)
+            ds = [{"day":self.day, "timeslots":[]} for i in range(rows)]
+
+
+            for i in range(rows):
+                for slot in chunks[i]:
+                    if slot:
+                        ds[i]["timeslots"].append(slot.slot_to_json())
+                    else:
+                        ds[i]["timeslots"].append({"isvalid":0})
+            return ds
+
+
+
+
+
+
+
+  
+
+
+
+
 
 
 class courseTimetable(object):
@@ -135,11 +162,13 @@ class courseTimetable(object):
         
         for day in self.days:
             dayjson = day.day_to_json()
-            if len(dayjson) == 1:
-                d["days"].append(dayjson[0])
-            else:
-                d["days"].append(dayjson[0])
-                d["days"].append(dayjson[1])
+            for key in dayjson:
+                d["days"].append(key)
+            # if len(dayjson) == 1:
+            #     d["days"].append(dayjson[0])
+            # else:
+            #     d["days"].append(dayjson[0])
+            #     d["days"].append(dayjson[1])
         return json.dumps(d)
 
 
