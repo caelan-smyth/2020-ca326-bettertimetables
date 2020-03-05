@@ -19,23 +19,23 @@ export default class Timetable extends React.Component {
                 console.log(entry.type)
                 if (entry.type === "Lec.") {
                     result.push(
-                        <td style={{backgroundColor:"#F92672"}}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
+                        <td style={{backgroundColor:"#F92672"}} name={entry.title}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
                     )
                 }
                 else if (entry.type === "Prac.") {
                     result.push(
-                        <td style={{backgroundColor:"#7289da"}}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
+                        <td style={{backgroundColor:"#7289da"}} name={entry.title}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
                     )
                 }
                 else {
                     result.push(
-                        <td style={{backgroundColor:"#FD971F"}}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
+                        <td style={{backgroundColor:"#FD971F"}} name={entry.title}>{entry.code}<br />{entry.title}<br />{entry.loc}<br />{entry.weeks}</td>
                     )
                 }
             }
             else {
                 result.push(
-                    <td>&nbsp;</td>
+                    <td name="blank cell">&nbsp;</td>
                 );
             }
         });
