@@ -143,17 +143,34 @@ We eventually had to remove the planned feature from the project and instead foc
 
 ## 5. Deployment
 ### 5.1 Manual Deployment
+This manual is written with the assumption that the React app is still being hosted at `http://oisin.site/bettertimetables`, and the Flask API on an EC2 instance with public IP `18.203.138.11`. As such, if you wish to host all components of the app locally, the frontend code must be edited to refer to `http://localhost:5000/` instead of the public API IP address. The requisite code for this is on line 61 of `code/bettertimetable-app/src/index.js`.
+
+```
+let url = 'http://18.203.138.11/'
+
+// should be changed to
+
+let url = 'http://localhost:50000/'
+```
+
+ If running the Flask Server locally, its `__main__` function should also be changed:
+
+```python
+if __name__ == '__main__':
+    app.run(debug=True)  
+```
+
 #### 5.1.1 Dependencies
 The following libraries/programs must be installed for the application to work:
 ##### General Dependencies
-* npm
-* python3
+* `npm`
+* `python3`
 
 ##### Pip Dependencies
-* Flask
-* Flask-SQLalchemy
-* BeautifulSoup 4
-* Requests
+* `Flask`
+* `Flask-SQLalchemy`
+* `BeautifulSoup 4`
+* `Requests`
 
 #### Installing build dependencies
 ```
@@ -177,7 +194,7 @@ npm start
 ```
 This will open the Web-App on port 3000, which can be accessed in a browser at:
 ```
-localhost:3000/
+http://localhost:3000/
 ```
 
 #### 5.1.4 Run the Server
@@ -186,10 +203,8 @@ From the top-level directory:
 cd code/python
 python3 server.py
 ```
-This will open the Flask server on port 5000, which can be accessed in a browser at:
-```
-localhost:5000/
-```
+This will open the Flask server on port 5000. The frontend code will have to be edited if you wish to run the API locally (see [5.1 Manual Deployment](#51-manual-deployment))
+
 
 
 #### 5.1.5 Updating the database

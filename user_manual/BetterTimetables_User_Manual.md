@@ -11,6 +11,7 @@
 
 ## 1. Overview
 This web-app is intended to be used as a substitute for DCU's currently offered timetable services. The aim of this web-app is to provide a more widely accessible and easier to use version of the timetable services.
+At the time of writing, the app can be accessed at `http://oisin.website/bettertimetables/` but it can also be built locally (see the technical manual).
 
 ## 2. Searching for a Timetable
 To search for a timetable, a user must fill out three fields on the following form:
