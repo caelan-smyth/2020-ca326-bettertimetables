@@ -10,7 +10,7 @@ test app:
   image: python:latest
   stage: test
   script:
-    - cd python
+    - cd code/python
     - pip install flask
     - pip install beautifulsoup4
     - pip install requests
@@ -21,7 +21,7 @@ eslint :
   image: node:latest
   stage : lint
   script:
-    - cd bettertimetable-app
+    - cd code/bettertimetable-app
     - npm install
     - npm install -g eslint 
     - npm install babel-eslint --save-dev
@@ -34,5 +34,5 @@ build app:
   image: node:latest
   stage: build
   script:
-    - cd bettertimetable-app/src
+    - cd code/bettertimetable-app
     - npm run build
