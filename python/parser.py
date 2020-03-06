@@ -56,7 +56,7 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
     # each list should be the same length or 2x.
     non_empty = [day.non_empty() for day in final_timetable]
     durations = [] 
-    print(non_empty)
+    # print(non_empty)
     # if len(durations) == 0:
     tmpcolspan = colspan[:]
     for key in non_empty:

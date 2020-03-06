@@ -1,15 +1,16 @@
 stages:
-  # - test
+  - test
   - lint
 cache:
   paths:
     - bettertimetable-app/node_modules/
-# test app:
-#   image: python:latest
-#   stage: test
-#   script:
-#     - cd python
-#     - python tests.py
+
+test app:
+  image: python:latest
+  stage: test
+  script:
+    - cd python
+    - python tests.py
 
 eslint :
   image: node:latest
