@@ -2,13 +2,13 @@ from objects import Timeslot, timetableDay, courseTimetable
 from flask import jsonify
 import copy
 
-def make_lists(data): # pass me cleanup(soup)
+def make_lists(data): # splits the long string of plaintext timetable info into a token for each day
     day_strings = data.replace("Mon", "splitplaceholder").replace("Tue", "splitplaceholder").replace("Wed", "splitplaceholder").replace("Thu", "splitplaceholder").replace("Fri", "splitplaceholder").split("splitplaceholder")
 
     mon, tue, wed, thu, fri = day_strings[1], day_strings[2], day_strings[3], day_strings[4], day_strings[5]
     return [mon, tue, wed, thu, fri]
 
-def parse_daylist(s, day): # pass one daystring at a time. returns a list of timeslot objects
+def parse_daylist(s, day): # pass one daystring at a time. returns a populated Day object.
     s = s.strip()
     keys = s.split("\n")
     keys = keys[2:]
@@ -17,7 +17,6 @@ def parse_daylist(s, day): # pass one daystring at a time. returns a list of tim
     i = 0
     while i < len(keys):
         if keys[i] == "emptySlot":
-            # output_list.append(None)
             output_day.add_timeslot(None)
             i += 1
         elif keys[i].strip() in start_strings:
@@ -35,16 +34,12 @@ def parse_daylist(s, day): # pass one daystring at a time. returns a list of tim
                 code = keys[i+4]
                 weeks = keys[i+5]
                 i += 1
-            # output_list.append(Timeslot(day, typ, loc, title, code, weeks))
             output_day.add_timeslot(Timeslot(day, typ, loc, title, code, weeks))
         else:
             i += 1
-
-    # return output_list
-    # print(output_day.daylength())
     return output_day
 
-
+# returns a fully populated timetable week object given the plaintext string and some more info
 def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up soup
     final_timetable = courseTimetable(code, year, sem)
     
@@ -52,22 +47,18 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
     week = ["Mon", "Tue", "Wed", "Thu", "Fri"]
     for i in range(5):
         final_timetable.add(parse_daylist(days[i], week[i]))
-    # TODO: normalise slots to 30mins here. cross ref durations and dupe long slots
-    # each list should be the same length or 2x.
     non_empty = [day.non_empty() for day in final_timetable]
     durations = [] 
-    # print(non_empty)
-    # if len(durations) == 0:
-    tmpcolspan = colspan[:]
-    for key in non_empty:
+    tmpcolspan = colspan[:] # trick to force a deep copy instead of reference
+    for key in non_empty: # assembling a list for each day representing the durations of each non empty slot
         if key !=0:
             durations.append(tmpcolspan[:key])
             tmpcolspan = tmpcolspan[key:]
         else:
             durations.append([])
-    # durations = [i for i in durations if len(i) > 0]
     # durations is a list of list representing dur of non empty slots for each day.
     # now use setters and getters, build a new list with duped slots and replace.
+    # result is to normalise each slot to be 30mins and each row to have an even no of slots - less work on frontend
     currentday = 0
     for day in final_timetable:
         slots = day.get_timeslots()
@@ -81,49 +72,15 @@ def timetableify(s, code, year, sem, rowspan, colspan): # pass me cleaned up sou
                 for i in range(current_durations[nonemptycounter]):
                     newslots.append(slot)                
                 nonemptycounter += 1
-
-        # if len(newslots) > 18:
-        #     newslots = newslots[:18] + newslots[20:]
         newnewslots = newslots[:18]
         if len(newslots) > 18:
             restrows = newslots[18:]
             list_rest_rows = [restrows[i:i+20] for i in range(0, len(restrows), 20)]
             for row in list_rest_rows:
                 newnewslots += row[2:]
-            # while i < len(restrows):
-            #     newnewslots += (restrows[i+2:i+20])
-            #     i += 20
-
-        
-
         day.set_timeslots(newnewslots)
         currentday += 1
     return final_timetable
-
-
-
-
-def main():
-    f = open("soup.txt", "r")
-    s = f.read()
-    colspan = [2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 4]
-    table = timetableify(s, "case", 2, 2, 0, colspan)
-    # print(table.week_to_json())
-    # for day in table:
-    #     print(day.non_empty())
-    # print(table)
-    f = open("tablestring.txt", "w")
-    f.write(str(table))
-    for day in table:
-        print(day.daylength())
-
-
-
-
-
-if __name__ == "__main__":
-    main()
-
 
 
 

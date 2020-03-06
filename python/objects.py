@@ -1,6 +1,6 @@
 import json
-# import numpy as np
-class Timeslot(object):
+class Timeslot(object): # atomic unit. one for each 30minute slot on timetable.
+    # contains all attributes needed to build the final product
     def __init__(self, day, slot_type, location, title, code, weeks, time=None):
         self.day = day
         self.time = time
@@ -10,7 +10,7 @@ class Timeslot(object):
         self.code = code
         self.weeks = weeks
     
-    def __str__(self):
+    def __str__(self): # only for human debugging
         s = "\n-----\n"
         s += ("Day: {}\n".format(self.day))
         s += ("Time: {}\n".format(self.time))
@@ -20,7 +20,7 @@ class Timeslot(object):
         s += ("Weeks: {}\n-----\n".format(self.weeks))
         return s
 
-    def slot_to_json(self):
+    def slot_to_json(self): # for sending data to frontend
         return {
             "isvalid" : 1,
             "code" : self.code,
@@ -31,7 +31,7 @@ class Timeslot(object):
         }
 
 
-
+# day object is basically just a list of timeslot objects.
 class timetableDay(object):
     def __init__(self, day, timeslots=list()):
         self.day = day
@@ -65,9 +65,9 @@ class timetableDay(object):
 
     def set_timeslots(self, l):
         self.timeslots = l
-    
+    # most important method. returns the json to be read by the frontend
     def day_to_json(self):
-        if len(self.timeslots) < 19:
+        if len(self.timeslots) < 19: # case of day taking up 1 row
             d = {
                 "day" : self.day,
                 "timeslots" : []
@@ -80,7 +80,7 @@ class timetableDay(object):
                     d["timeslots"].append({"isvalid":0})
             return [d]
 
-        elif len(self.timeslots) > 18 and len(self.timeslots) < 37:
+        elif len(self.timeslots) > 18 and len(self.timeslots) < 37: # case of 2 rows
             d1 = {"day":self.day, "timeslots":[]}
             d2 = {"day":self.day, "timeslots":[]}
             line1 = self.timeslots[:18]
@@ -98,7 +98,7 @@ class timetableDay(object):
                     d2["timeslots"].append({"isvalid":0})
             return [d1, d2] 
 
-        else:
+        else: # case of n > 2 rows
             chunks = [self.timeslots[i:i + 18] for i in range(0, len(self.timeslots), 18)]
             rows = len(chunks)
             ds = [{"day":self.day, "timeslots":[]} for i in range(rows)]
@@ -112,19 +112,7 @@ class timetableDay(object):
                         ds[i]["timeslots"].append({"isvalid":0})
             return ds
 
-
-
-
-
-
-
-  
-
-
-
-
-
-
+# week is a list of day objects.
 class courseTimetable(object):
     def __init__(self, course_code, year, semester, days=list()):
         self.course_code = course_code
@@ -150,8 +138,8 @@ class courseTimetable(object):
 
     def dayslength(self):
         return len(self.days)
-
-    # TODO: to_json method to populate db objects !important
+    # top level json output method. assembles a jsx object to be passed across api and interpreted by frontend.
+    # where it will get assembled into a table
     def week_to_json(self):
         d = {
             "code" : self.course_code,
@@ -164,11 +152,6 @@ class courseTimetable(object):
             dayjson = day.day_to_json()
             for key in dayjson:
                 d["days"].append(key)
-            # if len(dayjson) == 1:
-            #     d["days"].append(dayjson[0])
-            # else:
-            #     d["days"].append(dayjson[0])
-            #     d["days"].append(dayjson[1])
         return json.dumps(d)
 
 
