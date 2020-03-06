@@ -34,6 +34,7 @@ build app:
   image: node:latest
   stage: build
   script:
-    - npm install
     - cd code/bettertimetable-app
+    - npm install
+    - npm i react-scripts
     - npm run-script build
