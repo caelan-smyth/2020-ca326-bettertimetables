@@ -95,6 +95,9 @@ class TestGetter(unittest.TestCase):
         colspans = colspan_getter(tables)
         self.assertIsInstance(colspans, list)
 
+# class TestObjects(unittest.TestCase):
+
+
 
 
 

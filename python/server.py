@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, Response, abort
-from flask_restful import Resource, Api, reqparse
+# from flask_restful import Resource, Api, reqparse
 from timetable_getter import get_timetable
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
@@ -9,7 +9,7 @@ import datetime
 import json
 
 app = Flask(__name__)
-api = Api(app)
+# api = Api(app)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(basedir, 'timetables.db')
