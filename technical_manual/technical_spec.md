@@ -1,5 +1,50 @@
 # BetterTimetables - Technical Specification
 
+## 0. Table of Contents
+- [BetterTimetables - Technical Specification](#bettertimetables---technical-specification)
+  * [1. Introduction](#1-introduction)
+    + [1.1 Overview](#11-overview)
+    + [1.2 Glossary](#12-glossary)
+      - [React](#react)
+      - [SQL](#sql)
+      - [Flask](#flask)
+      - [JSON](#json)
+      - [WCAG](#wcag)
+      - [CSV](#csv)
+      - [API](#api)
+  * [2. System Architecture](#2-system-architecture)
+    + [2.1 Diagram](#21-diagram)
+    + [2.2 React App](#22-react-app)
+    + [2.3 Flask Server](#23-flask-server)
+    + [2.4 Database](#24-database)
+    + [2.5 Testing](#25-testing)
+      - [2.5.1 Continuous Integration](#251-continuous-integration)
+      - [Lint](#lint)
+      - [Test](#test)
+      - [Build](#build)
+        * [2.5.2 User Testing](#252-user-testing)
+      - [2.5.3 Accessibility Testing](#253-accessibility-testing)
+  * [3. High-Level Design](#3-high-level-design)
+    + [3.1 High Level Design Diagram](#31-high-level-design-diagram)
+    + [3.2 High Level Design Description](#32-high-level-design-description)
+  * [4. Problems and Resolution](#4-problems-and-resolution)
+    + [4.1 CSV to Table not working](#41-csv-to-table-not-working)
+      - [Problem](#problem)
+      - [Solution](#solution)
+    + [4.2 Google Calendar API integration](#42-google-calendar-api-integration)
+      - [Problem](#problem-1)
+      - [Solution](#solution-1)
+  * [5. Deployment](#5-deployment)
+    + [5.1 Manual Deployment](#51-manual-deployment)
+      - [5.1.1 Dependencies](#511-dependencies)
+        * [General Dependencies](#general-dependencies)
+        * [Pip Dependencies](#pip-dependencies)
+      - [Installing build dependencies](#installing-build-dependencies)
+      - [5.1.2 Obtaining source code](#512-obtaining-source-code)
+      - [5.1.3 Build the Web-App](#513-build-the-web-app)
+      - [5.1.4 Run the Server](#514-run-the-server)
+      - [5.1.5 Updating the database](#515-updating-the-database)
+
 ## 1. Introduction
 ### 1.1 Overview
 The system is an online timetable client for DCU students. It is designed to provide more ease of use, functionality, and accessibility than the legacy timetable system. Both the legacy system and the new alternative timetable system are limited in the feature that they offer and have quality of life issues for end users. The system allows DCU students to check their timetables with more ease. It offers functions which are not present within the legacy or newer timetable systems. Both existing systems also suffer from readability issues within the user interface, and the process of viewing a timetable is needlessly convoluted. 
@@ -119,13 +164,14 @@ npm install
 #### 5.1.2 Obtaining source code
 Git clone through https:
 ```
-git clone https://gitlab.computing.dcu.ie/henryo3/2020-ca326-ohenry-bettertimetables.git; cd 2020-ca326-ohenry-bettertimetables
+git clone https://gitlab.computing.dcu.ie/henryo3/2020-ca326-ohenry-bettertimetables.git 
+cd 2020-ca326-ohenry-bettertimetables
 ```
 
 #### 5.1.3 Build the Web-App
 From the top-level directory:
 ```
-cd bettertimetable-app
+cd code/bettertimetable-app
 npm install
 npm start
 ```
@@ -137,7 +183,7 @@ localhost:3000/
 #### 5.1.4 Run the Server
 From the top-level directory:
 ```
-cd python
+cd code/python
 python3 server.py
 ```
 This will open the Flask server on port 5000, which can be accessed in a browser at:
@@ -145,4 +191,12 @@ This will open the Flask server on port 5000, which can be accessed in a browser
 localhost:5000/
 ```
 
+
+#### 5.1.5 Updating the database
+
 The database is contained within the `python` folder and is addressed directly from `server.py`. The server should automatically address the correct path to the database using your operating system's path.
+
+To update the database, do:
+```
+curl http://localhost:5000/update
+```
