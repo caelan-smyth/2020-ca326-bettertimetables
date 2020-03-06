@@ -9,7 +9,7 @@ class App extends React.Component {
         this.state = {
             course: '' || localStorage.getItem("course"),
             year: null || localStorage.getItem("year"),
-            semester: null || localStorage.getItem("semester"),
+            semester: 1 || localStorage.getItem("semester"),
             data: localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")).data : [],
             type: '',
             day: '',
@@ -58,7 +58,7 @@ class App extends React.Component {
         event.preventDefault();
             
         const fetchTimetable = async () => { //get data from the API and store it in state
-            let url = 'http://localhost:5000/' + this.state.course + '/' + this.state.year + '/' + this.state.semester
+            let url = 'http://18.203.138.11/' + this.state.course + '/' + this.state.year + '/' + this.state.semester
             fetch(url)
             .then(res => res.json())
             .then((items => {
