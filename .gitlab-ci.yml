@@ -10,6 +10,8 @@ test app:
   stage: test
   script:
     - cd python
+    - pip install flask
+    - pip install beautifulsoup4
     - python tests.py
 
 eslint :
