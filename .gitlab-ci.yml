@@ -37,4 +37,4 @@ build app:
     - cd code/bettertimetable-app
     - npm install
     - npm i react-scripts
-    - npm run-script build
+    - CI=false npm run-script build
