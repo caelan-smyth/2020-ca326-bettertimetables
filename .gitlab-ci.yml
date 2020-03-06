@@ -1,6 +1,7 @@
 stages:
   - test
   - lint
+  - build
 cache:
   paths:
     - bettertimetable-app/node_modules/
@@ -28,3 +29,10 @@ eslint :
     - npm install typescript --save-dev
     - npm install -g eslint-plugin-react
     - node_modules/.bin/eslint src/. --ext '.js'
+
+build app:
+  image: node:latest
+  stage: build
+  script:
+    - cd bettertimetable-app/src
+    - npm run build
